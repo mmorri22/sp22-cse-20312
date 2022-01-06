@@ -8,7 +8,7 @@ int main(void){
 
 	fprintf( stdout, "Working Memory: %p\n", &hello );
 	fprintf( stdout, "Long-term Memory: %p\n", hello );
-	fprintf( stdout, "address of hello[2] = %p", hello + 2*sizeof(char) );
+	fprintf( stdout, "address of hello[2] = %p\n", hello + 2*sizeof(char) );
 
 	free( hello );
 
