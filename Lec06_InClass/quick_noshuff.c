@@ -16,25 +16,6 @@ void printArray(int* array, int length){
     fprintf( stdout, "\n" );
 }
 
-
-void shuffle(int *array, int array_len)
-{
-    if (array_len > 1)
-    {
-        int iter;
-        for (iter = 0; iter < array_len - 1; ++iter)
-        {
-            int denominator = RAND_MAX / (array_len - iter) + 1;
-            int jter = iter + (int)rand() / denominator;
-
-            // Swap the values at iter and jter
-            int temp = array[jter];
-            array[jter] = array[iter];
-            array[iter] = temp;
-        }
-    }
-}
-
 void exchange( int* array, int a, int b){
 
     fprintf( stdout, "Exchanging %d and %d\n", *(array + a), *(array + b) );
@@ -145,11 +126,6 @@ int main( const int argc, const char* argv[] )
     /* Print the initiali arrays */
     fprintf( stdout, "Initial Array  : " );
     printArray(array, argc - 1);
-
-    shuffle( array, array_len );
-
-    fprintf( stdout, "Shuffled Array : " );
-    printArray(array, array_len);
 
     quick_sort(array, argc - 1);
     fprintf( stdout, "Sorted Array   : " );
