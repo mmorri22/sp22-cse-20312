@@ -114,11 +114,6 @@ void quick_sort_recursive(int* array, int lo, int hi, int array_len ) {
 
 void quick_sort(int* array, int array_len) {
 
-    shuffle( array, array_len );
-
-    fprintf( stdout, "Shuffled Array : " );
-    printArray(array, array_len);
-
     fprintf( stdout, "Initialize the Quick Sort...\n");
     quick_sort_recursive(array, 0, array_len - 1, array_len);
 }
@@ -140,11 +135,16 @@ int main( const int argc, const char* argv[] )
     }
 
     /* Print the initiali arrays */
-    fprintf( stdout, "Initial Array: " );
+    fprintf( stdout, "Initial Array  : " );
     printArray(array, argc - 1);
 
+    shuffle( array, array_len );
+
+    fprintf( stdout, "Shuffled Array : " );
+    printArray(array, array_len);
+
     quick_sort(array, argc - 1);
-    fprintf( stdout, "Sorted Array : " );
+    fprintf( stdout, "Sorted Array   : " );
     printArray(array, argc - 1);
 
     fprintf( stdout, "\n");
