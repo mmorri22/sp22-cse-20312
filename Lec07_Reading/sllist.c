@@ -61,7 +61,6 @@ void print_list( sll_node* head_node ){
 	while( curr_ptr != NULL ){
 
 		fprintf( stdout, "Node Base Address: %p, ", curr_ptr );
-		fprintf( stdout, "Data Address: %p, ", &(curr_ptr->data) );
 		fprintf( stdout, "Data Value: %d, ", curr_ptr->data );
 		fprintf( stdout, "Location of Next Node: %p, ", &(curr_ptr->next_node) );
 		fprintf( stdout, "Value of Next Node: %p\n", curr_ptr->next_node );
@@ -94,6 +93,15 @@ void destructor( sll_node* curr_ptr ){
 
 int main( const int argc, const char* argv[] ){
 
+	fprintf( stdout, "argc: %p %d\n", &argc, argc );
+	fprintf( stdout, "argv: %p %p\n", &argv, argv );
+
+	int iter;
+	for( iter = 0; iter < argc; ++iter ){
+
+		fprintf( stdout, "argv[%d]: %p %s\n", iter, &argv[iter], argv[iter] );
+	}
+
 
 	// Step 4 - Dynamically allocate a sllist
 	sllist* the_list = (sllist *)malloc( sizeof( sllist ) );
@@ -104,7 +112,6 @@ int main( const int argc, const char* argv[] ){
 	fprintf( stdout, "Base Addresses: %p %p\n", &the_list, the_list );
 
 	// Step 11 - Replace 7 - Call insert with as many as we want to insert
-	int iter;
 	for( iter = 1; iter < argc; ++iter ){
 
 		int the_value = atoi( argv[iter] );
