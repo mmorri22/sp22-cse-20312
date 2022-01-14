@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -41,11 +33,9 @@ int main()
 {
 
     sllist* list_1 = constructor();
-
     sllist* list_2 = constructor();
 
     destructor( list_2 );
-
     destructor( list_1 );
 
     return EXIT_SUCCESS;
