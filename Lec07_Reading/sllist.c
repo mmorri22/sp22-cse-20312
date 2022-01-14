@@ -99,7 +99,7 @@ int main( const int argc, const char* argv[] ){
 	int iter;
 	for( iter = 0; iter < argc; ++iter ){
 
-		fprintf( stdout, "argv[%d]: %p %s\n", iter, &argv[iter], argv[iter] );
+		fprintf( stdout, "argv[%d]: %p %p %s\n", iter, &argv[iter], argv[iter], argv[iter] );
 	}
 
 
