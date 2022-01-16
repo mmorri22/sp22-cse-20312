@@ -35,14 +35,15 @@ int main(const int argc, const char* argv[])
 
 
    /************************************************************
-    * STEP 3                                                   *
+    * STEP 3                                                  *
     * Complete the check for correct number of arguments at    *
     * start of program below                                   *
     ************************************************************/
 
-   /* if ( checking number of arguments goes here ) */
+   if ( argc != 5 )
    {
       /*  print message to standard error goes here */
+      fprintf( stderr, "Incorrect number of command line inputs\n");
       exit (-1);
    }
 
@@ -63,12 +64,10 @@ int main(const int argc, const char* argv[])
     * Uncomment the code section below                          *
     *************************************************************/
 
-   /*
      fscanf (inputFile, "%d,%d\n", &rows, &cols);
-     fprintf ("The size of the picture will be %d by %d characters\n",
+     fprintf (stdout, "The size of the picture will be %d by %d characters\n",
              rows, cols);
      Read (inputFile, box, rows, cols);
-   */
 
    fclose (inputFile);
 
@@ -79,24 +78,24 @@ int main(const int argc, const char* argv[])
 
 
    /*************************************************************
-    * STEP 3                                                    *
+    * STEP 5 - Part 2                                                    *
     * Complete the definition of Show() at end of this file and *
     * uncomment the call to Show() below;                       *
     *************************************************************/
-   /* Show (box, rows, cols); */
+   Show (box, rows, cols);
    printf ("\n");
 
 
    /*************************************************************
-    * STEP 4                                                    *
+    * STEP 6                                                    *
     * Complete the definition of Flood() at end of this file and*
     * uncomment the calls to Flood() and Show() below;          *
     *************************************************************/
 
-   /* Flood (box, row, col, fillChar); */
-   /* Show (box, rows, cols); */
+   Flood (box, row, col, fillChar);
+   Show (box, rows, cols);
 
-   printf ("\n\nGood Bye\n\n");
+   fprintf (stdout, "\n\nGood Bye\n\n");
    return 0;
 }
 
@@ -144,13 +143,20 @@ void Show (char box[MAX_ROWS][MAX_COLS], int rows, int cols)
    /*  complete here. don't forget to output a newline
    **  at the end of each output line
    */
+   for( i = 0; i < rows; ++i){
+
+     for( j = 0; j < cols; ++j ){
+        fprintf( stdout, "%c", box[i][j] );
+     }
+     fprintf( stdout, "\n");
+   }
 
 }
 
 
 
 /*************************************************************
- STEP 6
+ STEP 4
  Complete the recursive definition of Flood()
  Inputs:    integer row of the picture
             integer column of the picture
@@ -160,13 +166,17 @@ void Show (char box[MAX_ROWS][MAX_COLS], int rows, int cols)
 *************************************************************/
 void Flood (char box[MAX_ROWS][MAX_COLS], int row, int col, char fill)
 {
-   /* Start here. Write the Base case - return if this spot is not a space */
+   /* Start here. Write the sase case - return if this spot is not a space */
+   if( box[row][col] != ' ')
+    return;
 
-
-   /* Set the box value to fill */
    box[row][col] = fill;
 
    /*  Complete here. Use four recursive calls to Flood() to fill the adjacent
    **  blank positions. Pay attention to array boundaries.
    */
+   Flood( box, row + 1, col, fill );
+   Flood( box, row - 1, col, fill );
+   Flood( box, row, col + 1, fill );
+   Flood( box, row, col - 1, fill );
 }
