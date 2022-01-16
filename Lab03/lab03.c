@@ -17,7 +17,7 @@ void Show (char box[MAX_ROWS][MAX_COLS], int rows, int cols);
 void Read (FILE *inputFile, char box[MAX_ROWS][MAX_COLS], int rows, int cols);
 
 
-int main(int argc, char* argv[])
+int main(const int argc, const char* argv[])
 {
    FILE *inputFile ;
 
