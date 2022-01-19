@@ -57,10 +57,10 @@ int main( const int argc, const char* argv[] )
     fprintf( stdout, "Initial Array  : " );
     printArray(array, argc - 1);
 
-    shuffle( array, array_len );
+    shuffle( array, argc - 1 );
 
     fprintf( stdout, "Shuffled Array : " );
-    printArray(array, array_len);
+    printArray(array, argc - 1 );
 
     quick_sort(array, argc - 1);
     fprintf( stdout, "Sorted Array   : " );

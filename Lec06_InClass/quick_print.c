@@ -90,7 +90,7 @@ int partition(int* array, int lo, int hi ) {
       exchange(array, lo, j);
 
     // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-    return i;
+    return j;
 }
 
 // quicksort the subarray from a[lo] to a[hi]
@@ -132,7 +132,9 @@ int main( const int argc, const char* argv[] )
     /* Seed the random number generator */
     srand( (unsigned int)time(0) );
 
-    int* array = (int *)malloc( (long unsigned int)(argc - 1) * sizeof(int) );
+    long unsigned int array_len = (long unsigned int)(argc - 1);
+
+    int* array = (int *)malloc( array_len * sizeof(int) );
 
     int iter;
     for( iter = 1; iter < argc; ++iter){
@@ -146,10 +148,10 @@ int main( const int argc, const char* argv[] )
     fprintf( stdout, "Initial Array  : " );
     printArray(array, argc - 1);
 
-    shuffle( array, array_len );
+    shuffle( array, argc - 1 );
 
-    fprintf( stdout, "Shuffled Array : " );
-    printArray(array, array_len);
+    //fprintf( stdout, "Shuffled Array : " );
+    //printArray(array, argc - 1);
 
     quick_sort(array, argc - 1);
     fprintf( stdout, "Sorted Array   : " );

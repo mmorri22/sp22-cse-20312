@@ -71,7 +71,7 @@ int partition(int* array, int lo, int hi ) {
       exchange(array, lo, j);
 
     // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-    return i;
+    return j;
 }
 
 // quicksort the subarray from a[lo] to a[hi]
@@ -87,6 +87,7 @@ void quick_sort_recursive(int* array, int lo, int hi, int array_len ) {
 
       if( array[hi] < array[lo] )
         exchange(array, lo, hi);
+		return;
     }
 
 
