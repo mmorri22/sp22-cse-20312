@@ -35,6 +35,26 @@ void shuffle(int *array, int array_len)
     }
 }
 
+// Put the exchange function here
+void exchange( int* array, int a, int b){
+
+
+}
+
+
+
+// Put the partition code here
+int partition(int* array, int lo, int hi ) {
+	
+	
+	
+}
+
+void quick_sort_recursive(int* array, int lo, int hi, int array_len ) {
+	
+	
+	
+}
 
 
 int main( const int argc, const char* argv[] )

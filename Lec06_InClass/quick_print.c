@@ -150,8 +150,8 @@ int main( const int argc, const char* argv[] )
 
     shuffle( array, argc - 1 );
 
-    //fprintf( stdout, "Shuffled Array : " );
-    //printArray(array, argc - 1);
+    fprintf( stdout, "Shuffled Array : " );
+    printArray(array, argc - 1);
 
     quick_sort(array, argc - 1);
     fprintf( stdout, "Sorted Array   : " );
