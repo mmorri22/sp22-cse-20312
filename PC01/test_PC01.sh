@@ -153,7 +153,7 @@ echo "Testing make PC01" >> $SCRIPT_OUT
 make clean >> $SCRIPT_OUT
 
 # make decode comparison variables
-MAKE_CLEAN_FORCE="rm -rf include/* exe/*"
+MAKE_CLEAN_FORCE="rm -rf objects/* exe/*"
 MAKE_PC02_TEST="make PC01"
 MAKE_GCC="gcc"
 MAKE_WALL="-Wall"
