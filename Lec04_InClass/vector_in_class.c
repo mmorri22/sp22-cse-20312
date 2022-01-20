@@ -107,13 +107,13 @@ void print( vector* int_vector ){
 int main(){
 	
 	
-	// Step 4 - Dynamically Allocate the Struct 
-	vector* int_vector = (vector *)malloc( sizeof( vector ) );
+	// Step 4 - Dynamically Allocate the Vector Struct 
+	
 	
 	// Step 7 - Call the Constructor
-	constructor( int_vector );
 	
-	// Loop and increment the vector size
+	
+	//  I will explain this loop, but it will help you with Programming Challenge 1
 	char char_continue = 'y';
 	while( char_continue == 'y' ){
 		
@@ -127,19 +127,16 @@ int main(){
 		// Print function 
 		print( int_vector );
 
-		// Flush the input buffer
-		getchar();
-
 		fprintf( stdout, "Do you wish to continue? (y for yes): ");
-		fscanf( stdin, "%c", &char_continue );		
+		fscanf( stdin, " %c", &char_continue );		
 		
 	}
 	
 	// Step 9 - Call the Destructor
-	destructor( int_vector );
+	
 	
 	// Step 5 - Call free on the vector 
-	free( int_vector );
+	
 	
 	return 0;
 }

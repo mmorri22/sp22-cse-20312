@@ -126,11 +126,9 @@ int main(){
 		// Print function 
 		print( int_vector );
 
-		// Flush the input buffer
-		getchar();
 
 		fprintf( stdout, "Do you wish to continue? (y for yes): ");
-		fscanf( stdin, "%c", &char_continue );		
+		fscanf( stdin, " %c", &char_continue );		
 		
 	}
 	
