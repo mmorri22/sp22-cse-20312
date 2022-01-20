@@ -154,7 +154,7 @@ make clean >> $SCRIPT_OUT
 
 # make decode comparison variables
 MAKE_CLEAN_FORCE="rm -rf objects/* exe/*"
-MAKE_PC02_TEST="make PC01"
+MAKE_PC01_TEST="make PC01"
 MAKE_GCC="gcc"
 MAKE_WALL="-Wall"
 MAKE_WEXTRA="-Wextra"
