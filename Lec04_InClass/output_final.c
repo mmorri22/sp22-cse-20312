@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define _IO_TERMINATE 0xfbad2498
-
 int main( const int argc, const char** argv ){
+	
+	if( argc != 2 )
+		return EXIT_FAILURE;
 
-	FILE* the_input = fopen( "test.txt", "r" );
+	FILE* the_input = fopen( argv[1], "r" );
 
 	// Remember Dr. Morrison's Golden Rule of Pointers
 	while( the_input != NULL ){
 		
-		char address[20];
 		char word[20];
-		char new_line_char;
+		char space_or_new_line;
 
 		// Read in the two strings and a new line char
-		fscanf( the_input, "%s %s", address, word );
-		fscanf( the_input, "%c", &new_line_char );
+		fscanf( the_input, "%s", word );
+		fscanf( the_input, "%c ", &space_or_new_line );		
 		
 		// Print the contents to the user
-		fprintf( stdout, "File Contents: %s %s\n", address, word );
+		fprintf( stdout, "File Contents: %s\n", word );
 		
 		// Print the location of the two pointers
 		fprintf( stdout, "FILE pointers: %p %p\n", the_input->_IO_read_ptr, the_input->_IO_read_end );
@@ -29,28 +29,6 @@ int main( const int argc, const char** argv ){
 		if( the_input->_IO_read_ptr == the_input->_IO_read_end  )
 			break;
 		
-	}
-	
-	// Code to input if the FILE* is NULL - Build from output_2.c
-	if( the_input == NULL ){
-		fprintf( stderr, "When NULL, the_input = %p\n", the_input );
-		fprintf( stderr, "stderr is at %p\n", stderr );
-		fprintf( stdout, "stdout is at %p\n", stdout );
-
-		FILE* the_output = fopen( "test.txt", "w");
-
-		fprintf( stdout, "After w, the_output is now at %p\n", the_output );
-
-		int iter;
-		for( iter = 0; iter < argc; ++iter ){
-
-			fprintf( the_output, "%p, %s\n", &argv[iter], argv[iter] );
-
-		}
-
-		fclose( the_output );
-
-		exit( EXIT_FAILURE );
 	}
 
 

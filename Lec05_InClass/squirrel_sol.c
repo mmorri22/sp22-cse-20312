@@ -130,11 +130,8 @@ int max( int a,  int b ) {
 int main( int argc, char* argv[] ){
 	
 	if( argc != 2 ){
-		
 		fprintf( stderr, "Incorrect number of inputs\n" );
-		
 		return EXIT_FAILURE;
-		
 	}
 	
 	FILE* in_file = fopen( argv[1], "r" );
