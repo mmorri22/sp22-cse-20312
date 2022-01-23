@@ -46,6 +46,50 @@ new_delete: $(new_delete_objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/new_delete $(new_delete_objs)
 	
 	
+# C++ Call by Reference Example
+# Command: make pass_call_comp
+$(OBJ)/pass_call_comp.o: $(SRC)/pass_call_comp.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/pass_call_comp.cpp -o $@
+	
+pass_call_comp_objs := $(OBJ)/pass_call_comp.o
+
+pass_call_comp: $(pass_call_comp_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/pass_call_comp $(pass_call_comp_objs)
+	
+	
+# C++ Templates Example
+# Command: make template
+$(OBJ)/template.o: $(SRC)/template.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/template.cpp -o $@
+	
+template_objs := $(OBJ)/template.o
+
+template: $(template_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/template $(template_objs)
+	
+	
+# C++ Vector Example
+# Command: make vector
+$(OBJ)/vector.o: $(SRC)/vector.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/vector.cpp -o $@
+	
+vector_objs := $(OBJ)/vector.o
+
+vector: $(vector_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vector_objs)
+	
+	
+# C++ Vector Capacity Example
+# Command: make vector_capac
+$(OBJ)/vector_capac.o: $(SRC)/vector_capac.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/vector_capac.cpp -o $@
+	
+vector_capac_objs := $(OBJ)/vector_capac.o
+
+vector_capac: $(vector_capac_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/vector_capac $(vector_capac_objs)
+	
+	
 # Make clean
 clean :
 	rm -rf $(OBJ)/* $(EXE)/*
