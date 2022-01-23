@@ -104,6 +104,12 @@ void destructor( queue_node* curr_ptr ){
 
 }
 
+int front( queue* the_queue ){
+	
+	return the_queue->head_node->data;
+	
+}
+
 
 // Step 15 - Pop Front
 // Step 15 - Pop Front
