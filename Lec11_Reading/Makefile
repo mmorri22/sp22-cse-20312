@@ -22,6 +22,8 @@ PP := g++
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
+
+
 # C++ Hello, World Example
 # Command: make hello
 $(OBJ)/hello_cpp.o: $(SRC)/hello_cpp.cpp
@@ -31,6 +33,18 @@ hello_cpp_objs := $(OBJ)/hello_cpp.o
 
 hello_cpp: $(hello_cpp_objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/hello_cpp $(hello_cpp_objs)
+	
+
+# C++ New, Delete Example
+# Command: make new_delete
+$(OBJ)/new_delete.o: $(SRC)/new_delete.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/new_delete.cpp -o $@
+	
+new_delete_objs := $(OBJ)/new_delete.o
+
+new_delete: $(new_delete_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/new_delete $(new_delete_objs)
+	
 	
 # Make clean
 clean :
