@@ -16,14 +16,18 @@ int subset_sum(int* array, int array_len, int sum){
     // Case 1. Include the current item `A[n]` in the subset and recur
     // for the remaining items `n-1` with the remaining total `k-array[n]`
     int include = subset_sum(array, array_len - 1, sum - array[ array_len ]);
+	
+	// No need to take the right case if we have already found the solution
+	if( include ==  1 )
+		return include;
  
     // Case 2. Exclude the current item `A[n]` from the subset and recur for
     // the remaining items `n-1`
     int exclude = subset_sum(array, array_len - 1, sum);
  
     // return true if we can get subset by including or excluding the
-    // current item
-    return include || exclude;
+    // current item. Can do exclude because, if we got here, include must be 0
+    return exclude;
 }
  
  
