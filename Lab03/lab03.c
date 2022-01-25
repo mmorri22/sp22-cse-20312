@@ -65,7 +65,7 @@ int main(const int argc, const char* argv[])
 
    /*
      fscanf (inputFile, "%d,%d\n", &rows, &cols);
-     fprintf ("The size of the picture will be %d by %d characters\n",
+     fprintf (stdout, "The size of the picture will be %d by %d characters\n",
              rows, cols);
      Read (inputFile, box, rows, cols);
    */
