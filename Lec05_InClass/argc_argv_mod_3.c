@@ -21,7 +21,7 @@ int main( int argc, char* argv[] ){
 
 	print_inputs( argc, argv );
 
-	argc += 1;
+	argc += 42;
 	print_inputs( argc, argv );
 
 	return 0;
