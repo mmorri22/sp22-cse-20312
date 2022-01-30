@@ -1,5 +1,5 @@
-#ifndef BST_H
-#define BST_H
+#ifndef BST_SOL_H
+#define BST_SOL_H
 
 #include <stdio.h>
 #include <stdlib.h>

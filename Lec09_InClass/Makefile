@@ -1,7 +1,4 @@
-# Author: [Your Names]
-# E-mail: [Your Email]
-#
-# This is the Makefile for Programming Challenge 04 - CSE 20312
+# This is the Makefile for Lecture 09 - In-Class Programming - CSE 20312
 
 # gcc is for the compiler for C
 PP := gcc
@@ -27,18 +24,37 @@ $(OBJ)/bst.o: $(SRC)/bst.c
 	$(PP) $(CFLAGS) -c $(SRC)/bst.c -o $@
 	
 	
-# Create the PC04 object
-$(OBJ)/PC04.o: $(SRC)/PC04.c
-	$(PP) $(CFLAGS) -c $(SRC)/PC04.c -o $@
+# Create the Left Rotate Function Object - Solution
+$(OBJ)/bst_sol.o: $(SRC)/bst_sol.c
+	$(PP) $(CFLAGS) -c $(SRC)/bst_sol.c -o $@
 	
 	
-# Singly Linked List Objects
-PC04_objs := $(OBJ)/bst.o $(OBJ)/PC04.o
+# Create the Lec09 object
+$(OBJ)/Lec09.o: $(SRC)/Lec09.c
+	$(PP) $(CFLAGS) -c $(SRC)/Lec09.c -o $@
+	
+	
+# Create the Lec09 object
+$(OBJ)/Lec09_sol.o: $(SRC)/Lec09_sol.c
+	$(PP) $(CFLAGS) -c $(SRC)/Lec09_sol.c -o $@
+	
+	
+# Binary Search Tree Objects
+Lec09_objs := $(OBJ)/bst.o $(OBJ)/Lec09.o
 
 
-# Singly Linked List Executable and Run
-PC04: $(PC04_objs)
-	$(PP) $(CFLAGS) -o $(EXE)/PC04 $(PC04_objs)
+# Binary Search Tree Executable and Run
+Lec09: $(Lec09_objs)
+	$(PP) $(CFLAGS) -o $(EXE)/Lec09 $(Lec09_objs)
+	
+	
+# Binary Search Tree Objects
+Lec09_sol_objs := $(OBJ)/bst_sol.o $(OBJ)/Lec09_sol.o
+
+
+# Binary Search Tree Executable and Run
+Lec09_sol: $(Lec09_sol_objs)
+	$(PP) $(CFLAGS) -o $(EXE)/Lec09_sol $(Lec09_sol_objs)
 	
 	
 # Make clean

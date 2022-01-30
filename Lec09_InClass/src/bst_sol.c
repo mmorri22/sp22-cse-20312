@@ -1,4 +1,4 @@
-#include "../include/bst.h"
+#include "../include/bst_sol.h"
 
 void constructor( bst* int_bst ){
 	
@@ -93,21 +93,56 @@ void destructor( bst_node* curr_node ){
 
 void find_kth_element( bst_node* curr_node, int kth, int* curr_val, int* solution ){
 	
-	// Logic Goes Here
+	if( curr_node == NULL )
+		return;	
+
+	// Traverse Right
+	find_kth_element( curr_node->right, kth, curr_val, solution );
+	
+	// At this current node, increment curr_val
+	++(*curr_val);
+	
+	// If kth equals curr_val, then set the solution to the node's value
+	if( kth == *curr_val )
+		*solution = curr_node->value;
+	
+	// Traverse Left
+	find_kth_element( curr_node->left, kth, curr_val, solution  );
 	
 }
 
 long unsigned int maximum_depth( bst_node* curr_node ){
 	
-	// Logic Goes Here
+	if( curr_node == NULL )
+		return 0;
+	
+	// Rest of logic goes here
+	long unsigned int left = maximum_depth( curr_node->left );
+	
+	long unsigned int right = maximum_depth( curr_node->right );
+	
+	if( left > right )
+		return left + 1;
+	
+	return right + 1;
 	
 }
 
 
 void reverse_tree( bst_node** curr_node ){
 	
-	// Logic Goes Here 
+	if( *curr_node == NULL )
+		return;	
 	
+	reverse_tree( &((*curr_node)->left) );
+	
+	reverse_tree( &((*curr_node)->right) );
+	
+	bst_node* temp = (*curr_node)->left;
+	
+	(*curr_node)->left = (*curr_node)->right;
+	
+	(*curr_node)->right = temp;
 }
 
 

@@ -38,6 +38,11 @@ int main( const int argc, const char* argv[] ){
 	post_order_traversal( int_bst->root );
 	fprintf( stdout, "\n" );
 	
+	fprintf( stdout, "Level-order traversal: " );	
+	queue* level_queue = queue_constructor();
+	level_order_traversal( int_bst, level_queue );
+	fprintf( stdout, "\n" );
+	
 	// Print outputs
 	fprintf( stdout, "---------------------------------\n");
 	int curr_value = 0;
@@ -67,9 +72,19 @@ int main( const int argc, const char* argv[] ){
 	fprintf( stdout, "Post-order traversal: " );
 	post_order_traversal( int_bst->root );
 	fprintf( stdout, "\n" );
+
+	fprintf( stdout, "Level-order traversal: " );		
+	level_order_traversal( int_bst, level_queue );
+	fprintf( stdout, "\n" );
 	
 	// Call the destructor on the root 
 	destructor( int_bst->root );
+	
+	// Call the destructor on the queue
+	queue_destructor( level_queue->head_node );
+	
+	// Free the Queue pointer in the registers
+	free( level_queue );
 	
 	// Free the Binary Search Tree pointer 
 	free( int_bst );
