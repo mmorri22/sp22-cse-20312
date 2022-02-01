@@ -1,8 +1,5 @@
-#include <iostream>
-#include <cstdlib>
-
-#define COUT std::cout
-#define ENDL std::endl
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct stack_node{
 
@@ -93,13 +90,13 @@ void pop( stack* the_stack ){
 	
 	// Otherwise, move the node and free
 	// Set a reference pointer to head_node
-	// COMMENTED OUT - stack_node* reference = the_stack->head_node;
+	stack_node* reference = the_stack->head_node;
 	
 	// Set the head_node to head_node's next_node;
 	the_stack->head_node = the_stack->head_node->next_node;
 	
 	// Free the reference - Will comment out in class 
-	// COMMENTED OUT  - free( reference );
+	free( reference );
 	
 	
 }
@@ -169,7 +166,7 @@ int main( const int argc, const char* argv[] ){
 	// Run the algorithm
 	hanoi( stack_size, tower_1, tower_2, tower_3, &num_moves );
 	
-	COUT << stack_size << " plates moved in " << num_moves << " moves" << ENDL;
+	fprintf( stdout, "%d  plates moved in %d moves\n" , stack_size, num_moves );
 
 	
 	// Step 11 - Call the destructors
