@@ -22,7 +22,7 @@ typedef struct vector{
         
         // Overloaded Constructor 
         vector( const long unsigned int& init_len ) :
-            length( init_len ), capacity( init_len ), array( new int[init_len] ) {
+            length( 0 ), capacity( init_len ), array( new int[init_len] ) {
 				
 			std::cout << "Base address    : " << this << std::endl;
 			std::cout << "length address  : " << &(this->length) << std::endl;
@@ -58,11 +58,13 @@ int main()
 	std::cout << "Creating the empty_vec struct: " << std::endl;
     vector* empty_vec = new vector();
 
+	// C++ equivalent of fprintf( stdout, "%p %p\n", &empty_vec, empty_vec );
 	std::cout << "Base register address: " << &empty_vec << ", and data heap: " << (void *)empty_vec << std::endl;
 
  
 	std::cout << std::endl << "Creating the non_empty_vec struct: " << std::endl; 
     vector* non_empty_vec = new vector( 10 );
+	
 	std::cout << "Base register address: " << &non_empty_vec << ", and data heap: " << (void *)non_empty_vec << std::endl;
 	
 	std::cout << "empty_vec info: " << empty_vec->get_length() << " " << empty_vec->get_capacity() << std::endl;
@@ -70,7 +72,6 @@ int main()
 	std::cout << "non_empty_vec info: " << non_empty_vec->get_length() << " " << non_empty_vec->get_capacity() << std::endl;
 	
 	delete empty_vec;
-	
 	delete non_empty_vec;
 
     return 0;
