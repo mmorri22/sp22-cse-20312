@@ -15,9 +15,10 @@ TOTAL=400
 INIT=10
 CHECK_O_PTS=50
 CHECK_EXE_PTS=50
+CHECK_INITIALIZE=50
 CHECK_CLEAN=50
 PC_01_PQC_TEST=100
-COMPILATION_TEST=150
+COMPILATION_TEST=100
 
 
 # Delete the script.out so student can test multiple times
@@ -105,6 +106,39 @@ else
 	echo "Student successfully pushed to GitHub with no executables" >> $SCRIPT_OUT
 	((STUDENT_GRADE += $CHECK_EXE_PTS))
 	echo "$CHECK_EXE_PTS / $CHECK_EXE_PTS" >> $SCRIPT_OUT
+fi
+
+
+#######################
+# Test the make initialize command 
+#######################
+echo "" >> $SCRIPT_OUT
+echo "-----------------------------" >> $SCRIPT_OUT
+echo "Testing make initialize" >> $SCRIPT_OUT
+
+# Test for object files 
+MAKE_INITIALIZE_TEST="make initialize"
+
+MAKE_INITIALIZE_TEST_RESULT=$( $MAKE_INITIALIZE_TEST )
+
+# Send command to redirect 
+echo $MAKE_INITIALIZE_TEST_RESULT >> $REDIRECT
+
+# Will pass if they ran rm
+if grep -e "Nothing to be done" $REDIRECT 
+
+then
+	
+	echo "$MAKE_INITIALIZE_TEST did not pass" >> $SCRIPT_OUT
+	echo "0 / $CHECK_INITIALIZE" >> $SCRIPT_OUT
+
+else
+
+	echo "Student successfully implement $MAKE_INITIALIZE_TEST" >> $SCRIPT_OUT
+	echo "$CHECK_INITIALIZE / $CHECK_INITIALIZE" >> $SCRIPT_OUT
+	echo "" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $CHECK_INITIALIZE))
+
 fi
 
 
