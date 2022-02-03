@@ -133,13 +133,7 @@ void pop_front( sn_queue* the_queue ){
 
 	else if( the_queue->head_node == the_queue->tail_node ){
 		
-		if( the_queue->head_node->data != NULL ){
-			free( the_queue->head_node->data );
-		}
-		else if( the_queue->head_node->data == NULL ){
-			fprintf( stdout, "not expected\n" );
-		}
-		
+		free( the_queue->head_node->data );
 		free( the_queue->head_node );
 
 		the_queue->head_node = NULL;

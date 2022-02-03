@@ -44,18 +44,6 @@ pass_call_comp_objs := $(OBJ)/pass_call_comp.o
 pass_call_comp: $(pass_call_comp_objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/pass_call_comp $(pass_call_comp_objs)
 	
-
-	
-
-# C++ New, Delete Example
-# Command: make new_delete
-$(OBJ)/new_delete.o: $(SRC)/new_delete.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/new_delete.cpp -o $@
-	
-new_delete_objs := $(OBJ)/new_delete.o
-
-new_delete: $(new_delete_objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/new_delete $(new_delete_objs)
 	
 	
 	
@@ -106,15 +94,37 @@ vector: $(vector_objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vector_objs)
 	
 	
-# C++ Vector Capacity Example
-# Command: make vector_capac
-$(OBJ)/vector_capac.o: $(SRC)/vector_capac.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/vector_capac.cpp -o $@
+# C++ BST Level-Order Traversal Example 
+# Command: make bst_level
+$(OBJ)/bst_level.o: $(SRC)/bst_level.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/bst_level.cpp -o $@
 	
-vector_capac_objs := $(OBJ)/vector_capac.o
+bst_level_objs := $(OBJ)/bst_level.o
 
-vector_capac: $(vector_capac_objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/vector_capac $(vector_capac_objs)
+bst_level: $(bst_level_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/bst_level $(bst_level_objs)
+	
+	
+# C++ Set Example 
+# Command: make set_example
+$(OBJ)/set_example.o: $(SRC)/set_example.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/set_example.cpp -o $@
+	
+set_example_objs := $(OBJ)/set_example.o
+
+set_example: $(set_example_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/set_example $(set_example_objs)
+	
+	
+# C++ Map Example 
+# Command: make map_example
+$(OBJ)/map_example.o: $(SRC)/map_example.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/map_example.cpp -o $@
+	
+map_example_objs := $(OBJ)/map_example.o
+
+map_example: $(map_example_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/map_example $(map_example_objs)
 	
 	
 # Make clean
