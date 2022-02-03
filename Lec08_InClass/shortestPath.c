@@ -71,9 +71,7 @@ void BFS(int matrix[][N], int orig_x, int orig_y, int dest_x, int dest_y)
 		
 		// Set iterarors to the x and y coordinate, and get the current distance
 		int iter = frontSearchNode->x, jter = frontSearchNode->y, dist = frontSearchNode->dist;
-		
-		fprintf( stdout, "Checking (%d, %d), which is %d \n", iter, jter, matrix[iter][jter] );
-		
+				
 		// Remove the front element 
 		pop_front( theQueue );
 		
@@ -149,7 +147,6 @@ void BFS(int matrix[][N], int orig_x, int orig_y, int dest_x, int dest_y)
 		fprintf( stdout, "Destination can't be reached from given source\n" );
 	
 	// Free the queue 
-	//free(origin);
 	destructor( theQueue->head_node );
 	free( theQueue );
 	
