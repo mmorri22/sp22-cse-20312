@@ -6,3 +6,4 @@ wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec12_InClas
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec12_InClass/dll_test_sol.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec12_InClass/queue_sol.h
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec12_InClass/queue_test_sol.cpp
+rm setup.sh
