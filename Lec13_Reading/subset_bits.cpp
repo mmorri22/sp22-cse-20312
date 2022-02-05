@@ -3,18 +3,22 @@
 
 
 int main(){
-    
-    std::vector<int> subset;
+   
 	int size = 3;
     
-	for (int bit = 0; bit < ( 1 << size); ++bit) {
+	std::cout << (1 << size) << std::endl;
+	
+	for (int bit = 0; bit < ( 1 << size ); ++bit) {
 		
+		// Create an empty vector
 		std::vector<int> subset;
 		
-		for (int i = 0; i < size; ++i) {
+		// Iterate through the size
+		for (int iter = 0; iter < size; ++iter) {
 			
-			if (bit & ( 1 << i ) ) 
-				subset.push_back(i);
+			// If the integer value of the bit and 
+			if (bit & ( 1 << iter ) ) 
+				subset.push_back(iter);
 		}
 		
         std::cout << "{ ";
@@ -23,6 +27,7 @@ int main(){
 			std::cout << "Empty Set ";
 		}
 		
+		// Use the C++ Smart Iterator
 		for( int values : subset ){
 			std::cout << values << " ";
 		}
