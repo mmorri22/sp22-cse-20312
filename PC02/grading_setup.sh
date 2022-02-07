@@ -96,7 +96,7 @@ exe/./PC02 tests/test5.txt 200 outputs/test5_200gen.out
 exe/./PC02 tests/test5.txt 200 outputs/test5_500gen.out
 exe/./PC02 tests/test6.txt 100 outputs/test6_100gen.out
 exe/./PC02 tests/test6.txt 200 outputs/test6_200gen.out
-exe/./PC02 tests/test6.txt 200 outputs/test6_500gen.out
+exe/./PC02 tests/test6.txt 500 outputs/test6_500gen.out
 
 # Test the script 
 if diff -s "solutions/test1_5gen.out" "outputs/test1_5gen.out">/dev/null; then
