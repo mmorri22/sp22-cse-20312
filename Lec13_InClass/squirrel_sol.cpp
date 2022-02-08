@@ -70,21 +70,26 @@ void read_file( int** matrix, long unsigned int size, FILE* in_file ){
 
 int search_maze( int** matrix, long unsigned int size, int iter, int jter ){
 	
-	// Create values to track right and down for return
-
+	int right_val = 0; 
+	int down_val = 0;
 	
-	// Search Down - Be sure to check for exceeding the maze
-	
-	
+	// Search Down
+	if( iter + 1 < (int)size ){
+		
+		down_val = search_maze( matrix, size, iter + 1, jter );
+	}	
 	
 	// Search Right
-
+	if( jter + 1 < (int)size ){
+		
+		right_val = search_maze( matrix, size, iter, jter + 1 );
+	}
 	
-	// Compare using the max function 
-	
+	// Compare
+	int curr_max = max( down_val, right_val );
 	
 	// Return curr_max and the current value
-	
+	return matrix[iter][jter] + curr_max;
 	
 }
 
