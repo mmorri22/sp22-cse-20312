@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-size_t initial_iteration( const std::vector<int>& numbers ){
+size_t get_combination_count( const std::vector<int>& numbers ){
 	
 	// size_t is a C++ version of long unsigned int
 	size_t count = 0;
@@ -37,7 +37,7 @@ int main( ) {
     
     std::vector<int> numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; 
 
-    std::cout << "Total combinations = " << initial_iteration( numbers ) << std::endl;
+    std::cout << "Total combinations = " << get_combination_count( numbers ) << std::endl;
 
 	return 0;
 }
