@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 // Added queue class 
-#include "../classes/queue.h"
+#include <queue>
 
 // M x N matrix
 #define M 10
@@ -73,13 +73,13 @@ void BFS(int matrix[][N], int orig_x, int orig_y, int dest_x, int dest_y)
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 	}; 	
 	
-	queue< SearchNode > theQueue;
+	std::queue< SearchNode > theQueue;
 	
 	// Mark the origin as visited
 	visited[orig_x][orig_y] = true;
 	
 	// Push the origin onto the queue
-	theQueue.push({orig_x, orig_y, 0});
+	theQueue.push( {orig_x, orig_y, 0} );
 	
 	// stores length of longest path from source to destination
 	int min_dist = M*N + 1;	// Every single possible SearchNode in the array visited once
