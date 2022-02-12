@@ -1,0 +1,60 @@
+-bash-4.2$ make PC03
+gcc -std=c11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -c src/PC03.c -o objects/PC03.o
+gcc -std=c11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -c src/fenwick.c -o objects/fenwick.o
+gcc -std=c11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -o exe/PC03 objects/PC03.o objects/fenwick.o
+-bash-4.2$ exe/./PC03 22 7 14 31 9 19 -2 18 36 41 88 5 
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 1
+Array  : 0 22 7 14 31 9 19 -2 18 36 41 88 5 
+Fenwick: 0 22 29 14 74 9 28 -2 118 36 77 88 170
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 12: 3 8
+The sum from 3 to 8 is 89
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 12: 3 9
+The sum from 3 to 9 is 125
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 3
+Enter the location and value to update the initial array: 8 0
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 1
+Array  : 0 22 7 14 31 9 19 -2 0 36 41 88 5 
+Fenwick: 0 22 29 14 74 9 28 -2 100 36 77 88 170
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 12: 3 8
+The sum from 3 to 8 is 71
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 12: 3 9
+The sum from 3 to 9 is 107
+Do you wish to continue? (y/n): n

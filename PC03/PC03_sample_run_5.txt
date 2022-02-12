@@ -1,0 +1,48 @@
+-bash-4.2$ exe/./PC03 10 -10 10 10 -10 10 10 -10 10 10
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 1
+Array  : 0 10 -10 10 10 -10 10 10 -10 10 10 
+Fenwick: 0 10 0 10 20 -10 0 10 20 10 20
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 10: 4 6
+The sum from 4 to 6 is 10
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 10: 1 4
+The sum from 1 to 4 is 20
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 3
+Enter the location and value to update the initial array: 5 100
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 1
+Array  : 0 10 -10 10 10 100 10 10 -10 10 10
+Fenwick: 0 10 0 10 20 100 110 10 130 10 20
+Do you wish to continue? (y/n): y
+Select your choice:
+1: Print array and fenwick tree
+2: Calculate range sum
+3: Update array and Fenwick Tree
+Enter you selection: 2
+Enter the range to calculate, between 1 and 10: 3 8
+The sum from 3 to 8 is 130
+Do you wish to continue? (y/n): n

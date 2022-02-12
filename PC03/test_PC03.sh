@@ -16,7 +16,7 @@ INIT=10
 CHECK_O_PTS=50
 CHECK_EXE_PTS=50
 CHECK_CLEAN=50
-PC_01_PQC_TEST=100
+PC_03_PQC_TEST=100
 COMPILATION_TEST=150
 
 
@@ -34,7 +34,7 @@ if test -f $REDIRECT; then
 fi
 
 # Write initial messages to the output file
-INTRO_MESSAGE="Grading script for Spring 2022 - Programming Challenge 01"
+INTRO_MESSAGE="Grading script for Spring 2022 - Programming Challenge 03"
 NAME_MESSAGE="Type in the student's name (or just press Enter):"
 ID_MESSAGE="Type in the student's Notre Dame netID name (or just press Enter):"
 
@@ -72,10 +72,10 @@ LIST_OUTPUTS="ls *"
 CHECK_O_TEST="test -f objects/*.o"
 
 # Test for the executable 
-CHECK_EXE="test -f exe/PC01"    
+CHECK_EXE="test -f exe/PC03"    
 
 # Next, we check for the object files  
-if test -f "objects/PC01.o" || test -f "objects/rotations.o"; then
+if test -f "objects/PC03.o" || test -f "objects/fenwick.o"; then
     echo "One or more object file exist." >> $SCRIPT_OUT
 	echo "Executables must be cleaned prior to GitHub push." >> $SCRIPT_OUT
 	echo "Automatic 50 point deduction, per project description" >> $SCRIPT_OUT
@@ -92,14 +92,14 @@ fi
 
 
 # Next, we check for the executable 
-if test -f "exe/PC01"; then
-    echo "PC01 Executable Exists." >> $SCRIPT_OUT
+if test -f "exe/PC03"; then
+    echo "PC03 Executable Exists." >> $SCRIPT_OUT
 	echo "Executables must be cleaned prior to GitHub push." >> $SCRIPT_OUT
 	echo "Automatic 50 point deduction, per project description" >> $SCRIPT_OUT
 	echo "0 / $CHECK_EXE_PTS" >> $SCRIPT_OUT
 	echo "Here are the files currently in the project folder." >> $SCRIPT_OUT
-	CHECK_PC01_TEST_RESULT=$( $LIST_OUTPUTS ) >> $SCRIPT_OUT
-	echo "$CHECK_PC01_TEST_RESULT" >> $SCRIPT_OUT
+	CHECK_PC03_TEST_RESULT=$( $LIST_OUTPUTS ) >> $SCRIPT_OUT
+	echo "$CHECK_PC03_TEST_RESULT" >> $SCRIPT_OUT
 
 else
 	echo "Student successfully pushed to GitHub with no executables" >> $SCRIPT_OUT
@@ -143,34 +143,34 @@ fi
 
 
 #######################
-# Test the make PC01 command 
+# Test the make PC03 command 
 #######################
 
 echo "" >> $SCRIPT_OUT
 echo "-----------------------------" >> $SCRIPT_OUT
-echo "Testing make PC01" >> $SCRIPT_OUT
+echo "Testing make PC03" >> $SCRIPT_OUT
 
 make clean >> $SCRIPT_OUT
 
 # make decode comparison variables
 MAKE_CLEAN_FORCE="rm -rf objects/* exe/*"
-MAKE_PC01_TEST="make PC01"
+MAKE_PC03_TEST="make PC03"
 MAKE_GCC="gcc"
 MAKE_WALL="-Wall"
 MAKE_WEXTRA="-Wextra"
 MAKE_WCONVERSION="-Wconversion"
 MAKE_WERROR="-Werror"
 MAKE_STD_C11="-std=c11"
-MAKE_PC01_CLEAN_FORCE=$( $MAKE_CLEAN_FORCE )
-MAKE_PC01_TEST_RESULT=$( $MAKE_PC01_TEST )
+MAKE_PC03_CLEAN_FORCE=$( $MAKE_CLEAN_FORCE )
+MAKE_PC03_TEST_RESULT=$( $MAKE_PC03_TEST )
 
 # Delete redirect and send make result to redirect 
-echo $MAKE_PC01_CLEAN_FORCE >> $REDIRECT
-echo $MAKE_PC01_TEST_RESULT >> $REDIRECT
+echo $MAKE_PC03_CLEAN_FORCE >> $REDIRECT
+echo $MAKE_PC03_TEST_RESULT >> $REDIRECT
 
 # Send results to the script
-echo "$MAKE_PC01_TEST output  : " >> $SCRIPT_OUT
-echo $MAKE_PC01_TEST_RESULT >> $SCRIPT_OUT
+echo "$MAKE_PC03_TEST output  : " >> $SCRIPT_OUT
+echo $MAKE_PC03_TEST_RESULT >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 # Add points to overall score or mark as 0 if not for make lucky
 
@@ -178,18 +178,18 @@ echo "" >> $SCRIPT_OUT
 if grep -e "$MAKE_GCC" $REDIRECT && grep -e "$MAKE_WEXTRA" $REDIRECT && grep -e "$MAKE_WCONVERSION" $REDIRECT && grep -e "$MAKE_WERROR" $REDIRECT && grep -e "$MAKE_STD_C11" $REDIRECT
 
 then 
-	echo "$MAKE_PC01_TEST test passed" >> $SCRIPT_OUT
+	echo "$MAKE_PC03_TEST test passed" >> $SCRIPT_OUT
 	echo "Student made a good faith attempt to compile with these flags:" >> $SCRIPT_OUT
 	echo "$MAKE_GCC $MAKE_WEXTRA $MAKE_WCONVERSION $MAKE_WERROR $MAKE_STD_C11" >> $SCRIPT_OUT
 	echo "Successful compilation is not required to earn these points" >> $SCRIPT_OUT
-	echo "$PC_01_PQC_TEST / $PC_01_PQC_TEST" >> $SCRIPT_OUT
+	echo "$PC_03_PQC_TEST / $PC_03_PQC_TEST" >> $SCRIPT_OUT
 	echo "" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $PC_01_PQC_TEST))
+	((STUDENT_GRADE += $PC_03_PQC_TEST))
 	
 else
-	echo "$MAKE_PC01_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $PC_01_PQC_TEST" >> $SCRIPT_OUT
-	echo "To the grading TA - Manually check if the make PC01 does not contain these flags." >> $SCRIPT_OUT
+	echo "$MAKE_PC03_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $PC_03_PQC_TEST" >> $SCRIPT_OUT
+	echo "To the grading TA - Manually check if the make PC03 does not contain these flags." >> $SCRIPT_OUT
 	echo "If it actually works, reward them back the 100 points and delete theese comment." >> $SCRIPT_OUT
 	echo "If not, then they violated the PQC rules, and deduct another 300 points." >> $SCRIPT_OUT
 	
@@ -205,7 +205,7 @@ fi
 echo "-----------------------------" >> $SCRIPT_OUT
 if grep -e "all warnings being treated as errors" $REDIRECT; then
 
-    echo "PC01 did not successfully compile." >> $SCRIPT_OUT
+    echo "PC03 did not successfully compile." >> $SCRIPT_OUT
 	echo "Executables must be cleaned prior to GitHub push." >> $SCRIPT_OUT
 	echo "Automatic 50 point deduction, per project description" >> $SCRIPT_OUT
 	echo "0 / $COMPILATION_TEST" >> $SCRIPT_OUT
@@ -214,7 +214,7 @@ if grep -e "all warnings being treated as errors" $REDIRECT; then
 
 else
 
-	echo "PC01 Successfully Compiled!" >> $SCRIPT_OUT
+	echo "PC03 Successfully Compiled!" >> $SCRIPT_OUT
 	((STUDENT_GRADE += $COMPILATION_TEST))
 	echo "$COMPILATION_TEST / $COMPILATION_TEST" >> $SCRIPT_OUT
 	
@@ -231,8 +231,8 @@ fi
 # Final Grade to both the screen and the script file.
 echo "-----------------------------" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
-echo "PC01 Standards Grade Portion for $STUDENT_NAME ($STUDENT_ID): $STUDENT_GRADE / $TOTAL " >> $SCRIPT_OUT
-echo "PC01 Standards Grade Portion for $STUDENT_NAME ($STUDENT_ID): $STUDENT_GRADE / $TOTAL "
+echo "PC03 Standards Grade Portion for $STUDENT_NAME ($STUDENT_ID): $STUDENT_GRADE / $TOTAL " >> $SCRIPT_OUT
+echo "PC03 Standards Grade Portion for $STUDENT_NAME ($STUDENT_ID): $STUDENT_GRADE / $TOTAL "
 echo "Run 'vim $SCRIPT_OUT' to see the result of the test script"
 
 
