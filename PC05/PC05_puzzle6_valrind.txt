@@ -1,0 +1,37 @@
+-bash-4.2$ valgrind --leak-check=full exe/./PC05 puzzle6.txt puzzle6.out
+==14266== Memcheck, a memory error detector
+==14266== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14266== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==14266== Command: exe/./PC05 puzzle6.txt puzzle6.out
+==14266==
+Welcome to our Sudoku Game!
+Initial Puzzle:
+0 8 1 0 0 0 5 0 0 
+0 9 4 0 0 0 0 2 7
+3 0 0 0 2 0 0 8 9
+0 0 0 7 0 4 0 0 0
+0 0 8 0 6 0 9 0 0
+0 0 0 2 0 9 0 0 0
+6 3 0 0 5 0 0 0 1
+8 1 0 0 0 0 7 6 0
+0 0 9 0 0 0 3 5 0
+Attempting to solve the Puzzle...
+You solved the puzzle!
+2 8 1 9 4 7 5 3 6
+5 9 4 8 3 6 1 2 7
+3 7 6 1 2 5 4 8 9
+9 5 2 7 8 4 6 1 3
+1 4 8 5 6 3 9 7 2
+7 6 3 2 1 9 8 4 5
+6 3 7 4 5 8 2 9 1
+8 1 5 3 9 2 7 6 4
+4 2 9 6 7 1 3 5 8
+==14266==
+==14266== HEAP SUMMARY:
+==14266==     in use at exit: 0 bytes in 0 blocks
+==14266==   total heap usage: 15 allocs, 15 frees, 18,096 bytes allocated
+==14266==
+==14266== All heap blocks were freed -- no leaks are possible
+==14266==
+==14266== For lists of detected and suppressed errors, rerun with: -s
+==14266== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
