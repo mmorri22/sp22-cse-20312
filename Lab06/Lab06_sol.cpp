@@ -36,7 +36,12 @@ bool is_palindrome( const STRING& the_string ){
 
 void find( VECTOR< VECTOR<STRING> >& solutions, VECTOR<STRING>& current_partitions, const STRING& the_string ){
 	
-	// Base Case
+	/********************************************************
+	 * Step 5-A: Write the Base Case
+	 * If the string size is 0
+	   * Push current partitions onto the back of solutions
+	   * return
+	 ********************************************************/
 	if( the_string.size() == 0 ){
 		
 		solutions.push_back( current_partitions );
@@ -94,7 +99,7 @@ int main(){
 	STRING test_4 = "aba";
 	STRING test_5 = "abab";
 	STRING test_6 = "ababcb";
-	// STRING test_6 = "aababcbabcbccbb";
+	STRING test_7 = "aababcbabcbccbb";
 	
 	// Tests
 	print_vector( partition(test_1), test_1 );
@@ -103,6 +108,7 @@ int main(){
 	print_vector( partition(test_4), test_4 );
 	print_vector( partition(test_5), test_5 );
 	print_vector( partition(test_6), test_6 );
+	print_vector( partition(test_7), test_7 );
 
 	return EXIT_SUCCESS;
 	

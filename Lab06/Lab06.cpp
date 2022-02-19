@@ -3,18 +3,15 @@
 #include <string>
 
 /************************************
- * Part 1 - Make compiler directives
+ * Step 3 - Make compiler directives
  * COUT for std::cout
  * ENDL for std::endl
  * VECTOR for std::vector
  * STRING for std::string
  * SIZE_T for long unsigned int
  ************************************/
-#define COUT std::cout
-#define ENDL std::endl
-#define VECTOR std::vector
-#define STRING std::string
-#define SIZE_T long unsigned int
+
+
 
 bool is_palindrome( const STRING& the_string ){
 	
@@ -36,36 +33,32 @@ bool is_palindrome( const STRING& the_string ){
 
 void find( VECTOR< VECTOR<STRING> >& solutions, VECTOR<STRING>& current_partitions, const STRING& the_string ){
 	
-	// Base Case
-	if( the_string.size() == 0 ){
-		
-		solutions.push_back( current_partitions );
-		
-		return;
-		
-	}
+	/********************************************************
+	 * Step 5-A: Write the Base Case
+	 * If the string size is 0
+	   * Push current partitions onto the back of solutions
+	   * return
+	 ********************************************************/
 	
-	for( SIZE_T iter = 1; iter <= the_string.size(); ++iter ){
-		
-		if( is_palindrome( the_string.substr( 0, iter ) ) ){
-			
-			current_partitions.push_back( the_string.substr( 0, iter ) );
-			
-			find( solutions, current_partitions, the_string.substr( iter ) );
-			
-			current_partitions.pop_back();
-		}
-	}
+	/********************************************************
+	 * Step 5-B: Writing the Recursive Case 
+	 * Write the recursive case described in the lab description
+	 ********************************************************/
 }
+
+
 
 VECTOR< VECTOR<STRING> > partition( const STRING& the_string ){
 	
-	VECTOR< VECTOR<STRING> > solutions;
-	VECTOR<STRING> current_partition;
-		
-	find( solutions, current_partition, the_string );
-	
-	return solutions;
+	/************************************
+	 * Step 4 - Writing the recursive set up
+	 * Create a templated vector of a vector of strings called solutions
+	   * Formatted just like the return value in the function call
+	 * Create a vector of strings called current_partition
+	 * Make a call to the find function passing solutions, current_partition, and the_string 
+	 * Return solutions
+	 ************************************/
+ 
 }
 
 void print_vector( const VECTOR< VECTOR<STRING> >& print_vector, const STRING& the_string ){
@@ -103,7 +96,7 @@ int main(){
 	print_vector( partition(test_4), test_4 );
 	print_vector( partition(test_5), test_5 );
 	print_vector( partition(test_6), test_6 );
-	// print_vector( partition(test_6), test_6 );
+	// print_vector( partition(test_7), test_7 );
 
 	return EXIT_SUCCESS;
 	
