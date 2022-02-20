@@ -2,11 +2,10 @@
 
 int main( ){
 	
-	// Create the new dllist
-	dllist cache_list( initialize_cache() );
-	
-	// Hash Map with the dllist node and the time stamp
-	UNOR_MAP< int, dllist_node* > cache_map;
+	/*************************************
+	 * Here, you will initialize the Doubly Linked List 
+	 * and the unordered_map with the int, dll_node* key value pair
+	 ************************************/
 	
 	char continue_read = 'y';
 	
@@ -22,23 +21,20 @@ int main( ){
 		switch( user_choice ) {
 				
 			case 'p':
-				int next_data;
-				COUT << "You selected put. Insert a data value to place at the next address: ";
-				CIN >> next_data;
 				
-				// Put the value 
-				put_value( cache_list, cache_map, next_data, num_accesses );
+				/*************************************
+				 * Here, you will get the input data value from the user 
+				 * and then call the put function
+				 ************************************/				
 
 				break;
 				
 			case 'g':
-				int get_location;
-				COUT << "You selected get. Select a data to get from the cache: ";
-				
-				CIN >> get_location;
-				
-				// Get and promote the value
-				get_value( cache_list, cache_map, get_location, num_accesses );	
+			
+				/*************************************
+				 * Here, you will get the input data value from the user 
+				 * and then call the get function
+				 ************************************/	
 				
 				break;
 				
@@ -47,13 +43,20 @@ int main( ){
 			
 		}
 		
-		// Print the update list to the user
-		cache_list.print_list();
+		/*************************************
+		 * Here, you will call print_list on your doubly linked list 
+		 ************************************/			
 	    
 	    COUT << "Do you wish to continue? (y/n): ";
 	    CIN >> continue_read;
 	    
 	}
+	
+	/*************************************
+	 * Note: Since you will be calling the constructor for dllist 
+	 * without making it a pointer, the destructor will 
+	 * automatically be called, so you do not need to call it!
+	 ************************************/
 	
 	return EXIT_SUCCESS;
 }

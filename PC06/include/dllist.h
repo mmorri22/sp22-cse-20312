@@ -11,17 +11,10 @@
 
 struct dllist_node{
 
-	int data;
-	
-	int time_stamp;
-	
-	struct dllist_node* prev_node;	
-	
-	struct dllist_node* next_node;	
-	
-	// Constructor
-	dllist_node( const int& data_in, const int& time_in ) 
-	    : data( data_in ), time_stamp( time_in ), prev_node( NULL ), next_node( NULL ) { }
+		/********************************
+		 * Put the public members and the constructor here for the 
+		 * Doubly Linked List Node as identified in the project description
+		 *********************************/
 	
 };
 
@@ -47,22 +40,18 @@ struct dllist{
 
     public:
 
-        SIZE_T capacity;
-        SIZE_T list_size;
-    	struct dllist_node* head_node;
-    	struct dllist_node* tail_node;
+		/********************************
+		 * Put the public members, the constructor, and the destructor here 
+		 * for the Doubly Linked List as identified in the project description
+		 *********************************/
+		 
     	
-    	// Constructor
-    	dllist( const SIZE_T& capac_in ) : capacity(capac_in), list_size(0), head_node( NULL ), tail_node( NULL ) {}
     	
-    	// Destructor
-    	~dllist(){
-    	    
-    	    destructor( this->head_node );
-    	}
-    	
-    	// Push to the front and return a pointer to the node
-    	dllist_node* push_front( const int& the_value, const int& the_time ){
+		/********************************
+		 * Here, you will modify the push_front method to return a 
+		 * pointer to the address of the inserted node 
+		 *********************************/
+    	void push_front( const int& the_value, const int& the_time ){
         	
         	// Create a dll_node pointer called insert_node
         	dllist_node* insert_node = new dllist_node( the_value, the_time );
@@ -77,7 +66,7 @@ struct dllist{
         		// Increment the size
         		this->list_size++;
         		
-        		return insert_node;
+				
         	}
         	
         	// Otherwise, we perform the pointer arithmetic
@@ -93,8 +82,8 @@ struct dllist{
     		// Increment the size
     		this->list_size++;
     		
-    		// return the address of the inserted node 
-    		return insert_node;
+    		
+
         	
         }
         
@@ -140,40 +129,12 @@ struct dllist{
 
     void promote_node_to_front( dllist_node* the_node, int num_accesses ){
         
-        // Dr. Morrison's Golden Rule of pointers. If any are NULL, return!
-        if( this->head_node == NULL || this->tail_node == NULL || the_node == NULL )
-            return;
-        
-        // Set the node's time stamp to num accesses 
-        the_node->time_stamp = num_accesses;
-        
-        // First, if the node is equal to the head node, do nothing 
-        if( the_node == this->head_node ){
-            return;
-        }
-        
-        // If the node is equal to the tail node 
-        if( this->tail_node == the_node ){
-            
-            this->tail_node = the_node->prev_node;
-            
-            this->tail_node->next_node = NULL;
-        }
-        else{
-        
-            // Otherwise, we need to promote the node 
-            the_node->prev_node->next_node = the_node->next_node;
-            the_node->next_node->prev_node = the_node->prev_node;
-            
-        }
-            
-        // Set the node up to be equal to the head node 
-        the_node->prev_node = NULL;
-        the_node->next_node = this->head_node;
-        this->head_node->prev_node = the_node;
-        
-        // Finally, set the head node pointer to the insert node 
-        this->head_node = the_node;
+		/**********************************
+		 * Here, you will write the code to promote 
+		 * the node at the address passed to this method
+		 * to the front of the Doubly Linked List 
+		 * and you will update the internal time stamp to num_accesses
+		 ***********************************/
         
     }
     
@@ -183,6 +144,15 @@ struct dllist{
     }
     
     void print_list(){
+		
+		/**********************************
+		 * Here, you will print the cache contents to the user 
+		 * First, print the current size 
+		 * Set a node pointer equal to the head node
+		 * Then, iterate through the list while the current node is not NULL
+		 * At each node, print the address of the node 
+		 * the time_stamp, and the data on a separate line 
+		 ***********************************/
         
         COUT << "Cache contents: " << ENDL;
         COUT << "Current size: " << this->list_size << ENDL;
