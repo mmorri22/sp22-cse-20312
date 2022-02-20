@@ -1,0 +1,293 @@
+-bash-4.2$ make initialize
+rm -rf objects exe
+mkdir objects exe
+-bash-4.2$ make PC06
+g++ -m64 -std=c++11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -c src/PC06.cpp -o objects/PC06.o
+g++ -m64 -std=c++11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -c src/lru_cache.cpp -o objects/lru_cache.o
+g++ -m64 -std=c++11 -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror -lm -o exe/PC06 objects/PC06.o objects/lru_cache.o
+-bash-4.2$ valgrind --leak-check=full exe/./PC06
+==1301== Memcheck, a memory error detector
+==1301== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.   
+==1301== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1301== Command: exe/./PC06
+==1301==
+State the size of the cache: 7
+Enter your choice:     
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g   
+You selected get. Select a data to get from the cache: 13
+13 is not in the cache. Cache miss!
+Cache contents:
+Current size: 0
+Do you wish to continue? (y/n): y  
+Enter your choice:     
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p   
+You selected put. Insert a data value to place at the next address: 15
+15 is not in the cache.
+Cache contents:
+Current size: 1
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 17
+17 is not in the cache.
+Cache contents:
+Current size: 2
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: -5
+-5 is not in the cache.
+Cache contents:
+Current size: 3
+Address = 0x5a24260: Time Stamp = 4, Data =  -5
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 9
+9 is not in the cache.
+Cache contents:
+Current size: 4
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a24260: Time Stamp = 4, Data =  -5
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 21
+21 is not in the cache.
+Cache contents:
+Current size: 5
+Address = 0x5a243e0: Time Stamp = 6, Data =  21
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a24260: Time Stamp = 4, Data =  -5
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: -5
+-5 is already in the cache.
+-5 is in the cache. Cache hit!
+Cache contents:
+Current size: 5
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a243e0: Time Stamp = 6, Data =  21
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 22
+22 is not in the cache.
+Cache contents:
+Current size: 6
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a243e0: Time Stamp = 6, Data =  21
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 21
+21 is in the cache. Cache hit!
+Cache contents:
+Current size: 6
+Address = 0x5a243e0: Time Stamp = 9, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 21
+21 is in the cache. Cache hit!
+Cache contents:
+Current size: 6
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Address = 0x5a240e0: Time Stamp = 2, Data =  15
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 15
+15 is in the cache. Cache hit!
+Cache contents:
+Current size: 6
+Address = 0x5a240e0: Time Stamp = 11, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 6
+6 is not in the cache. Cache miss!
+Cache contents:
+Current size: 6
+Address = 0x5a240e0: Time Stamp = 11, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 15
+15 is in the cache. Cache hit!
+Cache contents:
+Current size: 6
+Address = 0x5a240e0: Time Stamp = 13, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 100
+100 is not in the cache.
+Cache contents:
+Current size: 7
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a240e0: Time Stamp = 13, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Address = 0x5a241a0: Time Stamp = 3, Data =  17
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 1842
+1842 is not in the cache.
+Cache contents:
+Current size: 7
+Address = 0x5a24620: Time Stamp = 15, Data =  1842
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a240e0: Time Stamp = 13, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Address = 0x5a24320: Time Stamp = 5, Data =  9
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: p
+You selected put. Insert a data value to place at the next address: 44
+44 is not in the cache.
+Cache contents:
+Current size: 7
+Address = 0x5a246e0: Time Stamp = 16, Data =  44
+Address = 0x5a24620: Time Stamp = 15, Data =  1842
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a240e0: Time Stamp = 13, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Address = 0x5a24260: Time Stamp = 7, Data =  -5
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: -5
+-5 is in the cache. Cache hit!
+Cache contents:
+Current size: 7
+Address = 0x5a24260: Time Stamp = 17, Data =  -5
+Address = 0x5a246e0: Time Stamp = 16, Data =  44
+Address = 0x5a24620: Time Stamp = 15, Data =  1842
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a240e0: Time Stamp = 13, Data =  15
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g
+You selected get. Select a data to get from the cache: 15 
+15 is in the cache. Cache hit!
+Cache contents:
+Current size: 7
+Address = 0x5a240e0: Time Stamp = 18, Data =  15
+Address = 0x5a24260: Time Stamp = 17, Data =  -5
+Address = 0x5a246e0: Time Stamp = 16, Data =  44
+Address = 0x5a24620: Time Stamp = 15, Data =  1842
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Do you wish to continue? (y/n): y
+Enter your choice: 
+p: Put value onto cache
+g: Get value from cache
+Enter your choice: g 
+You selected get. Select a data to get from the cache: -5
+-5 is in the cache. Cache hit!
+Cache contents:
+Current size: 7
+Address = 0x5a24260: Time Stamp = 19, Data =  -5
+Address = 0x5a240e0: Time Stamp = 18, Data =  15
+Address = 0x5a246e0: Time Stamp = 16, Data =  44
+Address = 0x5a24620: Time Stamp = 15, Data =  1842
+Address = 0x5a24560: Time Stamp = 14, Data =  100
+Address = 0x5a243e0: Time Stamp = 10, Data =  21
+Address = 0x5a244a0: Time Stamp = 8, Data =  22
+Do you wish to continue? (y/n): n
+==1301== 
+==1301== HEAP SUMMARY:
+==1301==     in use at exit: 0 bytes in 0 blocks
+==1301==   total heap usage: 19 allocs, 19 frees, 520 bytes allocated
+==1301==
+==1301== All heap blocks were freed -- no leaks are possible
+==1301==
+==1301== For lists of detected and suppressed errors, rerun with: -s
+==1301== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
