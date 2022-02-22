@@ -16,6 +16,10 @@ SRC := src
 OBJ := obj
 EXE := exe
 
+initialize:
+	rm -rf $(OBJ) $(EXE)
+	mkdir $(OBJ) $(EXE)
+
 
 # Command: make containsDup
 containsDupObjs := $(OBJ)/containsDup.o
