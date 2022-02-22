@@ -1,5 +1,5 @@
-#ifndef TWOSUMS_H
-#define TWOSUMS_H
+#ifndef 3SUMS_H
+#define 3SUMS_H
 
 #include <iostream>
 #include <vector>
