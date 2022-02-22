@@ -3,8 +3,8 @@
 int main( ){
 	
 	/*************************************
-	 * Here, you will initialize the Doubly Linked List 
-	 * and the unordered_map with the int, dll_node* key value pair
+	 * Here, you will call the constructor for the Doubly Linked List 
+	 * and create the unordered_map with the int, dll_node* key value pair
 	 ************************************/
 	
 	char continue_read = 'y';

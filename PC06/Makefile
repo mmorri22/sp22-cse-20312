@@ -2,6 +2,7 @@
 # E-mail: matt.morrison@nd.edu
 #
 # This is the Makefile for Programming Challenge 06
+# Provided to the students
 
 # g++ is for the GCC compiler for C++
 CC := g++

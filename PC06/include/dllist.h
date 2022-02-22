@@ -66,7 +66,7 @@ struct dllist{
         		// Increment the size
         		this->list_size++;
         		
-				
+				return;
         	}
         	
         	// Otherwise, we perform the pointer arithmetic
@@ -83,7 +83,7 @@ struct dllist{
     		this->list_size++;
     		
     		
-
+			return;
         	
         }
         
@@ -144,15 +144,6 @@ struct dllist{
     }
     
     void print_list(){
-		
-		/**********************************
-		 * Here, you will print the cache contents to the user 
-		 * First, print the current size 
-		 * Set a node pointer equal to the head node
-		 * Then, iterate through the list while the current node is not NULL
-		 * At each node, print the address of the node 
-		 * the time_stamp, and the data on a separate line 
-		 ***********************************/
         
         COUT << "Cache contents: " << ENDL;
         COUT << "Current size: " << this->list_size << ENDL;

@@ -28,15 +28,23 @@ SIZE_T initialize_cache( ){
 }
 
 
-void get_value( dllist& cache_list, UNOR_MAP< int, dllist_node* >& cache_map, 
-    const int insert_data, int num_accesses ){
-		
+void put_value( dllist& cache_list, UNOR_MAP< int, dllist_node* >& cache_map, 
+    int insert_data, int num_accesses ){
+
+	/*********************************
+	 * You will follow the steps for putting an element into a DLList and unordered map
+	 * from the Programming Challenge 06 description
+	 *********************************/
 
 }
 
 
-void put_value( dllist& cache_list, UNOR_MAP< int, dllist_node* >& cache_map, 
-    int insert_data, int num_accesses ){
-
+void get_value( dllist& cache_list, UNOR_MAP< int, dllist_node* >& cache_map, 
+    const int insert_data, int num_accesses ){
+		
+	/*********************************
+	 * You will follow the steps for putting an element into a DLList and unordered map
+	 * from the Programming Challenge 06 description
+	 *********************************/
 
 }
