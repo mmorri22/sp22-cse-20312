@@ -66,16 +66,9 @@ $(OBJ)/LCS.o: $(SRC)/LCS.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/LCS.cpp -o $@
 	
 
-# make initialize
-# Will be called by grader to initialize your objects and executables folders
-
-initialize: 
-	mkdir $(OBJ) $(EXE)
-	
-
 
 # Make all
-all: 3Sum LCS
+all: TwoSums 3Sum LCS containsDup
 
 # Make clean
 clean :
