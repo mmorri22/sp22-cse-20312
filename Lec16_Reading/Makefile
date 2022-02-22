@@ -15,6 +15,28 @@ INC := include
 SRC := src
 EXE := exe
 OBJ := obj
+
+
+# Command: make test_min_heap
+# Tests the Treap Insert Results
+test_min_heapObjs := $(OBJ)/test_min_heap.o 
+
+test_min_heap: $(test_min_heapObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/test_min_heap $(test_min_heapObjs)
+
+$(OBJ)/test_min_heap.o: $(SRC)/test_min_heap.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/test_min_heap.cpp -o $@
+	
+	
+# Command: make test_max_heap
+# Tests the Treap Insert Results
+test_max_heapObjs := $(OBJ)/test_max_heap.o 
+
+test_max_heap: $(test_max_heapObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/test_max_heap $(test_max_heapObjs)
+
+$(OBJ)/test_max_heap.o: $(SRC)/test_max_heap.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/test_max_heap.cpp -o $@
 	
 
 # Command: make testBH
@@ -23,9 +45,8 @@ testBHObjs := $(OBJ)/testBH.o
 
 testBH: $(testBHObjs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testBH $(testBHObjs)
-	$(EXE)/./testBH
 
-$(OBJ)/testBH.o: $(SRC)/testBH.cpp $(INC)/BinomialHeap.h
+$(OBJ)/testBH.o: $(SRC)/testBH.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testBH.cpp -o $@
 
 
@@ -36,27 +57,10 @@ testPQObjs := $(OBJ)/testPQ.o
 
 testPQ: $(testPQObjs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testPQ $(testPQObjs)
-	$(EXE)/./testPQ
 
-$(OBJ)/testPQ.o: $(SRC)/testPQ.cpp $(INC)/PriorityQueue.h
+$(OBJ)/testPQ.o: $(SRC)/testPQ.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testPQ.cpp -o $@
-
-
-
-# Command: make PriorityTest
-# Tests the Treap Insert Results
-PriorityTestObjs := $(OBJ)/PriorityTest.o 
-
-PriorityTest: $(PriorityTestObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/PriorityTest $(PriorityTestObjs)
-	$(EXE)/./PriorityTest
-
-$(OBJ)/PriorityTest.o: $(SRC)/PriorityTest.cpp $(INC)/PriorityQueue.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/PriorityTest.cpp -o $@
 	
-
-# Make all
-all: Prob1 Prob2
 
 
 # Make initialize
