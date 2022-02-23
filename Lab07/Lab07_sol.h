@@ -11,7 +11,7 @@
 #define ENDL std::endl
 #define SIZE_T long unsigned int
 
-void printMatrix( const VECTOR< VECTOR<SIZE_T> >& matrix, SIZE_T rows, SIZE_T cols ){
+void printMatrix( const VECTOR< VECTOR<SIZE_T> >& matrix ){
 	
 	
 	/**********************************
@@ -21,11 +21,11 @@ void printMatrix( const VECTOR< VECTOR<SIZE_T> >& matrix, SIZE_T rows, SIZE_T co
 	 * to what we have learned in class as well as the readings
 	 **********************************/
 	
-	for( long unsigned int iter = 0; iter < rows; iter++ ){
+	for( VECTOR<SIZE_T> curr_vec : matrix ){
 		
-		for( long unsigned int jter = 0; jter < cols; jter++ ){
+		for( SIZE_T curr_val : curr_vec ){
 			
-			COUT << matrix.at(iter).at(jter) << " ";
+			COUT << curr_val << " ";
 			
 		}
 		COUT << ENDL;
@@ -36,14 +36,20 @@ void printMatrix( const VECTOR< VECTOR<SIZE_T> >& matrix, SIZE_T rows, SIZE_T co
 
 SIZE_T LCS( STRING& string1, STRING& string2 ){
 	
-	
+	/***************************************************
+	 * STEP 4: Creating a Vector of Vector of long unsigned ints 
+	 * The number of rows (aka the number of Vectors of SIZE_T) should 
+	 * be the size of string1 + 1.
+	 * For the columns, it should be the size of string2 + 1, with
+	 * each integer set to 0
+	 *****************************************************/
 	VECTOR< VECTOR<SIZE_T> > matrix( (string1.size() + 1), VECTOR<SIZE_T>(string2.size() + 1, 0)  );
 		
 	SIZE_T result = 0;
 		
-	COUT << "Initial Matrix" << ENDL;
+	COUT << ENDL << "Initial Matrix" << ENDL;
 	
-	printMatrix( matrix, string1.size() + 1, string2.size() + 1 );
+	printMatrix( matrix );
 	
 	// Perform the algorithm 
 	for( SIZE_T iter = 0; iter < string1.size(); iter++ ){
@@ -74,9 +80,9 @@ SIZE_T LCS( STRING& string1, STRING& string2 ){
 		}
 	}
 	
-	COUT << "Final Matrix" << ENDL;
+	COUT << ENDL << "Final Matrix" << ENDL;
 	
-	printMatrix( matrix, string1.size() + 1, string2.size() + 1 );
+	printMatrix( matrix );
 	
 	return result;
 }

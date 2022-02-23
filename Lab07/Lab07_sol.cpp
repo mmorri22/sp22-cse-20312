@@ -13,11 +13,11 @@ int main( const int argc, const char* argv[] ){
 	STRING string2( argv[2] );
 	
 	COUT << string1 << " " << string2 << ENDL;
-	COUT << "The LCS solution is " << LCS( string1, string2 ) << ENDL;
+	COUT << ENDL << "The LCS solution is " << LCS( string1, string2 ) << ENDL;
 	
 	COUT << "-------------------------------------" << ENDL << ENDL;
 	COUT << string2 << " " << string1 << ENDL;
-	COUT << "The LCS solution is " << LCS( string2, string1 ) << ENDL;
+	COUT << ENDL << "The LCS solution is " << LCS( string2, string1 ) << ENDL;
 	
 	return 0;
 	
