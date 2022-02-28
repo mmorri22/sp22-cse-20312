@@ -20,7 +20,6 @@ testVert1Objs := $(OBJ)/testVert1.o
 
 testVert1: $(testVert1Objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testVert1 $(testVert1Objs)
-	$(EXE)/./testVert1
 
 $(OBJ)/testVert1.o: $(SRC)/testVert1.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testVert1.cpp -o $@
@@ -33,7 +32,6 @@ testVert2Objs := $(OBJ)/testVert2.o
 
 testVert2: $(testVert2Objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testVert2 $(testVert2Objs)
-	$(EXE)/./testVert2
 
 $(OBJ)/testVert2.o: $(SRC)/testVert2.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testVert2.cpp -o $@
@@ -46,7 +44,6 @@ testGraph1Objs := $(OBJ)/testGraph1.o
 
 testGraph1: $(testGraph1Objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testGraph1 $(testGraph1Objs)
-	$(EXE)/./testGraph1
 
 $(OBJ)/testGraph1.o: $(SRC)/testGraph1.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testGraph1.cpp -o $@
@@ -59,7 +56,6 @@ GraphObjs := $(OBJ)/Graph.o
 
 Graph: $(GraphObjs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/Graph $(GraphObjs)
-	$(EXE)/./Graph
 
 $(OBJ)/Graph.o: $(SRC)/Graph.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Graph.cpp -o $@
@@ -72,22 +68,9 @@ testRemoveObjs := $(OBJ)/testRemove.o
 
 testRemove: $(testRemoveObjs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testRemove $(testRemoveObjs)
-	$(EXE)/./testRemove
 
 $(OBJ)/testRemove.o: $(SRC)/testRemove.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/testRemove.cpp -o $@
-
-
-# Command: make Prob3
-# Initial Examples of Vertex
-Prob3Objs := $(OBJ)/Prob3.o 
-
-Prob3: $(Prob3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Prob3 $(Prob3Objs)
-	$(EXE)/./Prob3
-
-$(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@
 	
 
 # Command: make DFS

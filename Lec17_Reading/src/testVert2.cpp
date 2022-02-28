@@ -1,4 +1,4 @@
-#include "../include/Vertex2.h"
+#include "../include/Vertex.h"
 
 int main(){
 	

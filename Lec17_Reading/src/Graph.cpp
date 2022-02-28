@@ -1,4 +1,4 @@
-#include "../inc/Graph2.h"
+#include "../include/Graph.h"
 #include <iostream>
 #include <vector>
 
@@ -7,7 +7,7 @@ int main(){
 	Graph< int > theGraph;
 	
 	for(int iter = 1; iter <= 8; iter++){
-		theGraph.add_vertex( iter );
+		theGraph.add_vertex( iter * 2 );
 	}
 	
 	// Nodes from 0
