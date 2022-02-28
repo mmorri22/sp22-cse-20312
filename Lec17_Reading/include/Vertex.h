@@ -25,35 +25,6 @@ class Vertex{
 		
 		~Vertex(){ }
 		
-		Vertex( const Vertex<T>& rhs ) : edges(), data( ), valid( true ) {
-			
-			if( this != &rhs ){
-				
-				for( unsigned int iter = 0; iter < rhs.num_edges(); iter++ ){
-				
-					edges.push_back( rhs.edges[iter] );
-					
-				}
-				
-				data = rhs.data;
-				
-			}			
-			
-		}
-		
-		Vertex<T>& operator=( const Vertex<T>& rhs ){
-			
-			if( this != &rhs ){
-				
-				for( unsigned int iter = 0; iter < rhs.num_edges(); iter++ ){
-					edges.push_back( rhs.edges[iter] );
-				}
-		
-				data = rhs.data;
-			}
-			
-			return *this;
-		}
 		
 		T get_vertex_value() const{
 			
