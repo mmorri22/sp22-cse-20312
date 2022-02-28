@@ -7,6 +7,8 @@
 #include <vector>
 
 #define VECTOR std::vector
+#define COUT std::cout
+#define ENDL std::endl
 
 template<class T>
 class Vertex{
@@ -118,35 +120,35 @@ class Vertex{
 			
 		}
 		
-		// Overloaded Friend Output Operator
-		friend std::ostream& operator<<( std::ostream& output, const Vertex<T>& theVert ){
-			
+		// Print to the Output
+		void print_vertex(){
+
 			// If the vertex is valid
-			if( theVert.valid ){
+			if( this->valid ){
 			
 				// Print the data element first
-				output << "[" << theVert.data << ": ";
+				COUT << "[" << this->data << ": ";
 				
 				// 
-				for( long unsigned int iter = 0; iter < theVert.edges.size(); iter++ ){
+				for( long unsigned int iter = 0; iter < this->edges.size(); iter++ ){
 					
 					// Print the destination
-					output << "{" << theVert.edges[iter].destin << ", ";
+					COUT << "{" << this->edges[iter].destin << ", ";
 					
 					// Print the weight
-					output << theVert.edges[iter].weight << "} ";
+					COUT << this->edges[iter].weight << "} ";
 					
 				}
-				output << "]";
+				COUT << "]";
 			
 			}
 			// If the vertex is not valid, indicate Lazy Deletion
 			else{
-				output << "[DELETED]";
-			}
+				COUT << "[DELETED]";
+			}		
 			
-			return output;
 		}
+
 		
 };
 
