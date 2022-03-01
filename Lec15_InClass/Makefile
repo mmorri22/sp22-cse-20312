@@ -55,16 +55,34 @@ $(OBJ)/3Sum.o: $(SRC)/3Sum.cpp
 
 
 
-# Command: make LCS
-LCSObjs := $(OBJ)/LCS.o
+# Command: make fibMemo
+fibMemoObjs := $(OBJ)/fibMemo.o
 
-LCS: $(LCSObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LCS $(LCSObjs)
-	$(EXE)/./LCS
+fibMemo: $(fibMemoObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/fibMemo $(fibMemoObjs)
 
-$(OBJ)/LCS.o: $(SRC)/LCS.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/LCS.cpp -o $@
+$(OBJ)/fibMemo.o: $(SRC)/fibMemo.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/fibMemo.cpp -o $@
 	
+	
+# Command: make countSort
+countSortObjs := $(OBJ)/countSort.o
+
+countSort: $(countSortObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/countSort $(countSortObjs)
+
+$(OBJ)/countSort.o: $(SRC)/countSort.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/countSort.cpp -o $@
+	
+	
+# Command: make bucketSort
+bucketSortObjs := $(OBJ)/bucketSort.o
+
+bucketSort: $(bucketSortObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/bucketSort $(bucketSortObjs)
+
+$(OBJ)/bucketSort.o: $(SRC)/bucketSort.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/bucketSort.cpp -o $@
 
 
 # Make all
