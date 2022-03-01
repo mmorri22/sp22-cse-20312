@@ -62,6 +62,34 @@ struct Graph{
 				
 		}
 		
+		// Private DFS method
+		void TopSort( unsigned int vertVal, VECTOR<unsigned int>& parents, VECTOR<bool>& visited ){
+				
+			if( !visited[ vertVal ] ){
+				
+				// Set the visited edges to true
+				visited[ vertVal ] = true;
+				
+				// Check each outgoing edge 
+				for( unsigned int iter = 0; iter < vertices[ vertVal ].num_edges(); iter++ ){
+					
+					// Obtain a temporary copy of the Edge
+					Edge tempEdge = vertices[ vertVal ].get_edge( iter );
+					
+					// If the destination has not been visited, make recursive call
+					if( !visited[ tempEdge.destin ] ){
+						
+						// Set the destination's parent to vertVal
+						parents[ tempEdge.destin ] = vertVal;
+						
+						// Otherwise, recursively call the destination vertex
+						TopSort( tempEdge.destin, parents, visited );
+						
+					}
+				}
+			}
+		}
+		
 	public:
 		// Constructor
 		Graph( ) : vertices() {}
@@ -558,6 +586,56 @@ struct Graph{
 				finalPath.pop();
 			}
 			std::cout << std::endl;
+		}
+		
+		
+		// Method for Topological Sort
+		Graph<T> TopSort( ){
+			
+			/* Initialize the Values for the Topological Sort */
+			
+			/* Initialize the return Graph */
+			Graph<T> TopSortGraph;
+			
+			for( unsigned int iter = 0; iter < vertices.size(); iter++ ){
+				
+				// Add the value of each vertex to the TopSort graph
+				TopSortGraph.add_vertex( vertices[ iter ].get_vertex_value() );
+				
+			}
+			
+			// Track the parents for printing the results
+			VECTOR<unsigned int> parents(vertices.size());
+			
+			// Keep track of the visited vertices
+			VECTOR<bool> visited(vertices.size());
+			
+			// Create a stack to store the final path
+			STACK< unsigned int > finalPath;
+			
+			// Set all the visited elements to false
+			for( unsigned int iter = 0; iter < vertices.size(); iter++ ){
+				visited[iter] = false;
+				parents[iter] = -1;
+			}
+			
+			// Run the Topological Sort - We must check every element 
+			for(unsigned int iter = 0; iter < vertices.size(); iter++ ){
+				TopSort( iter, parents, visited );
+			}
+			
+			// Add all the edges from the parent to the Graph 
+			for( unsigned int iter = 1; iter < vertices.size(); iter++ ){
+				
+				// Get the edge weight 
+				int edgeWeight = 0;
+				get_edge_value( parents[iter], iter, edgeWeight );
+				
+				// Add the Edge
+				TopSortGraph.add_edge(parents[iter], iter, edgeWeight );
+			}
+			
+			return TopSortGraph;
 		}
 
 

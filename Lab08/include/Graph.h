@@ -451,16 +451,80 @@ struct Graph{
 			
 
 			/****************************************************
-			 * Lab Work Goes Here
+			 * Part 3 - Checking Inputs
 			 *
-			 * This is where you will perform the code to perform a Breadth-First Search
-			 *
-			 *
+			 * Print an error message to the user if the origin or destination
+			 * is greater than or equal to the size of the Adjacency List (name vertices)
+			 * or if the vertices size is equal to 0.
+			 * Then, return so the rest of the code is not run.
 			 *****************************************************/
+			 
+			 
+			 /*****************************************************
+			  * Part 4 - Setting up the Breadth-First Search
+			  *
+			  * Create a queue templated to unsigned int called "theQueue"
+			  * - Note, #include <queue> is provided, and #define QUEUE std::queue is already in Graph.h
+			  * Push the origin index onto the queue.
+			  *
+			  * Next, create a bool array or bool vector called visited initialized to the size of the this->vertices and
+			  * set all  the values of the bool equal to false.
+			  *
+			  * Next, create an unsigned array or vector called parents and initialize the size of parents to the size
+			  * of this->vertices. Set the index at origin equal to -1 (indicating it has no parent, and is an origin
+			  *
+			  * **************************************/
+			bool found = false;
+
+			// Set found to true if the origin is the destination
+			if( destin == origin ){
+				found = true;
+			}
 
 
+			/********************************************************************
+			 * Step 5 - Implementing the BFS Algorithm
+			 *
+			 * Loop while we have not found the element (found is false) and the queue is not empty
+			 *
+			 * - First, create an unsigned int vertex equal to the front of the queue
+			 * - Then pop the element off the front of the queue 
+			 * - Mark the index indicated vy vertex in visited equal to true.
+			 *
+			 * - Now you will put all the unvisited outgoing edges onto the queue 
+			 *   - From lecture: the number of edges in the vertex is found with vertices[ vertex ].num_edges()
+			 *   - To simplify the code, create a variable edgeDestin equal to the destination
+		     *      - The line of code is: unsigned int edgeDestin = this->vertices[ vertex ].get_edge( iter ).destin;
+			 *   - If the edgeDestin is equal to the destin we are seeking,
+			 *      - Set found to true 
+			 *      - Set the index in parents at destin to vertex 
+			 *      - break the while loop 
+			 *   - If the edgeDestin has not been visited
+			 *      - Push edgeDestin onto the queue 
+			 *      - Mark edgeDestin's parent as vertex 
+			 *      - Mark edgeDestin as visited 
+			 *
+			 **************************************************************************/
+			 
+			 
+			 
+			 
+			 
+			 /******************************************************************************
+			  * The code below will print the full BFS path and is provided for you
+			  *****************************************************************************/
+
+			// If we have not found the node, there is no path
+			if( !found ){
+				
+				std::cout << "No valid path from " << origin << " to " << destin << std::endl;
+				return;
+			}
 			
 			// Otherwise, go through the parents until we find the origin
+			// Use this stack for the final path
+			STACK< unsigned int > finalPath;
+			
 			unsigned int sentinel = destin;	
 			finalPath.push( sentinel );		// Push the desination onto the stack
 			
