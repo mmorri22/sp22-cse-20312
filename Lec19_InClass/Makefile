@@ -1,7 +1,7 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 - Lecture 15
+# This is the Makefile for the CSE 20312 - Lecture 19
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -19,6 +19,18 @@ EXE := exe
 initialize:
 	rm -rf $(OBJ) $(EXE)
 	mkdir $(OBJ) $(EXE)
+	
+	
+# Command: make Dijkstra
+DijkstraObjs := $(OBJ)/Dijkstra.o
+
+Dijkstra: $(DijkstraObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Dijkstra $(DijkstraObjs)
+	$(EXE)/./Dijkstra
+
+$(OBJ)/Dijkstra.o: $(SRC)/Dijkstra.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Dijkstra.cpp -o $@
+
 
 
 # Command: make containsDup
@@ -54,39 +66,6 @@ $(OBJ)/3Sum.o: $(SRC)/3Sum.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/3Sum.cpp -o $@
 
 
-
-# Command: make fibMemo
-fibMemoObjs := $(OBJ)/fibMemo.o
-
-fibMemo: $(fibMemoObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/fibMemo $(fibMemoObjs)
-
-$(OBJ)/fibMemo.o: $(SRC)/fibMemo.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/fibMemo.cpp -o $@
-	
-	
-# Command: make countSort
-countSortObjs := $(OBJ)/countSort.o
-
-countSort: $(countSortObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/countSort $(countSortObjs)
-
-$(OBJ)/countSort.o: $(SRC)/countSort.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/countSort.cpp -o $@
-	
-	
-# Command: make bucketSort
-bucketSortObjs := $(OBJ)/bucketSort.o
-
-bucketSort: $(bucketSortObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/bucketSort $(bucketSortObjs)
-
-$(OBJ)/bucketSort.o: $(SRC)/bucketSort.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/bucketSort.cpp -o $@
-
-
-# Make all
-all: TwoSums 3Sum LCS containsDup
 
 # Make clean
 clean :
