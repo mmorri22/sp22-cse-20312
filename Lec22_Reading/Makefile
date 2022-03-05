@@ -33,6 +33,16 @@ btree_node2_test: $(btree_node2_testObjs)
 
 $(OBJ)/btree_node2_test.o: $(SRC)/btree_node2_test.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/btree_node2_test.cpp -o $@
+	
+	
+# Command: make btree1_test
+btree1_testObjs := $(OBJ)/btree1_test.o 
+
+btree1_test: $(btree1_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree1_test $(btree1_testObjs)
+
+$(OBJ)/btree1_test.o: $(SRC)/btree1_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree1_test.cpp -o $@
 
 
 # make initialize
