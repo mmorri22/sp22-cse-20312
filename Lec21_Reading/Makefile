@@ -1,0 +1,47 @@
+# This is the Makefile for the CSE 20312 course Lecture 21
+
+# G++ is for the GCC compiler for C++
+PP := g++
+
+# CXXFLAGS are the compiler flages for when we compile C++ code in this course 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror
+CXXFLAGS := -m64 -std=c++11 $(FLAGS)
+
+# Variables for Folders
+INC := include
+SRC := src
+EXE := exe
+OBJ := objects
+
+	
+
+# Command: make btree_node1_test
+btree_node1_testObjs := $(OBJ)/btree_node1_test.o 
+
+btree_node1_test: $(btree_node1_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_node1_test $(btree_node1_testObjs)
+
+$(OBJ)/btree_node1_test.o: $(SRC)/btree_node1_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_node1_test.cpp -o $@
+
+	
+# Command: make btree_node2_test
+btree_node2_testObjs := $(OBJ)/btree_node2_test.o 
+
+btree_node2_test: $(btree_node2_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_node2_test $(btree_node2_testObjs)
+
+$(OBJ)/btree_node2_test.o: $(SRC)/btree_node2_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_node2_test.cpp -o $@
+
+
+# make initialize
+# Will be called by grader to initialize your objects and executables folders
+initialize: 
+	mkdir $(OBJ) $(EXE)
+
+
+
+# Make clean
+clean :
+	rm -rf $(OBJ)/* $(EXE)/*
