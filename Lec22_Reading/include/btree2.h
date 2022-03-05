@@ -1,5 +1,5 @@
-#ifndef BTREE1_H
-#define BTREE1_H
+#ifndef BTREE2_H
+#define BTREE2_H
 
 #include "btree_node2.h"
 
