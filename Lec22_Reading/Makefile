@@ -54,6 +54,66 @@ btree2_test: $(btree2_testObjs)
 $(OBJ)/btree2_test.o: $(SRC)/btree2_test.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/btree2_test.cpp -o $@
 	
+	
+# Command: make btree3_int_test
+btree3_int_testObjs := $(OBJ)/btree3_int_test.o 
+
+btree3_int_test: $(btree3_int_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree3_int_test $(btree3_int_testObjs)
+
+$(OBJ)/btree3_int_test.o: $(SRC)/btree3_int_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree3_int_test.cpp -o $@
+	
+	
+# Command: make btree3_str_test
+btree3_str_testObjs := $(OBJ)/btree3_str_test.o 
+
+btree3_str_test: $(btree3_str_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree3_str_test $(btree3_str_testObjs)
+
+$(OBJ)/btree3_str_test.o: $(SRC)/btree3_str_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree3_str_test.cpp -o $@
+	
+	
+# Command: make btree_int_O3_test
+btree_int_O3_testObjs := $(OBJ)/btree_int_O3_test.o 
+
+btree_int_O3_test: $(btree_int_O3_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_int_O3_test $(btree_int_O3_testObjs)
+
+$(OBJ)/btree_int_O3_test.o: $(SRC)/btree_int_O3_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_int_O3_test.cpp -o $@
+	
+	
+# Command: make btree_int_O4_test
+btree_int_O4_testObjs := $(OBJ)/btree_int_O4_test.o 
+
+btree_int_O4_test: $(btree_int_O4_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_int_O4_test $(btree_int_O4_testObjs)
+
+$(OBJ)/btree_int_O4_test.o: $(SRC)/btree_int_O4_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_int_O4_test.cpp -o $@
+	
+
+# Command: make btree_str_O4_test
+btree_str_O4_testObjs := $(OBJ)/btree_str_O4_test.o 
+
+btree_str_O4_test: $(btree_str_O4_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_str_O4_test $(btree_str_O4_testObjs)
+
+$(OBJ)/btree_str_O4_test.o: $(SRC)/btree_str_O4_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_str_O4_test.cpp -o $@
+	
+	
+# Command: make btree_int_O1000_test
+btree_int_O1000_testObjs := $(OBJ)/btree_int_O1000_test.o 
+
+btree_int_O1000_test: $(btree_int_O1000_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_int_O1000_test $(btree_int_O1000_testObjs)
+
+$(OBJ)/btree_int_O1000_test.o: $(SRC)/btree_int_O1000_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_int_O1000_test.cpp -o $@
+	
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders

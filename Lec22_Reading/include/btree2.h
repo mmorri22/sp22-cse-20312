@@ -25,9 +25,11 @@ struct btree{
 		
 		void insert( const T& insert_val ){
 			
+			// If the root is NULL, initialize a new node
 			if( this->root == NULL )
 				this->root = new btree_node<T>( order );
 			
+			// Call the btree_node's insert method
 			this->root->insert( insert_val );
 			
 		}
