@@ -1,0 +1,26 @@
+Azithromycin. Pills = 45. EXP: 2019 JAN 23
+No Name. Pills = 0. EXP: 1 JAN 2019
+
+STOCK: Lisinopril. Pills = 45. EXP: 2020 DEC 31
+
+INSPECTION on 2020 MAY 1
+For Bottle 1: The check date 2020 MAY 1 is before the initial date 2019 JAN 23
+For Bottle 2: The check date 2020 MAY 1 is the same day or after the initial date 2020 DEC 31
+Bottle 2 is expired
+
+SCRIPT! Bottle Lisinoprilis expired as of 2020 DEC 31. Cannot dispense pills!
+
+SCRIPT! Bottle Lisinoprilis expired as of 2020 DEC 31. Cannot dispense pills!
+
+SCRIPT! Sufficient stock. Currently have 45 Azithromycin. Dispersing 30 Azithromycin
+Azithromycin. Pills = 15. EXP: 2019 JAN 23
+
+INSPECTION on 2020 DEC 31
+For Bottle 1: The check date 2020 DEC 31 is before the initial date 2019 JAN 23
+For Bottle 2: The check date 2020 DEC 31 is the same day or after the initial date 2020 DEC 31
+Bottle 2 is expired
+
+INSPECTION on 2021 JAN 1
+For Bottle 1: The check date 2021 JAN 1 is before the initial date 2019 JAN 23
+For Bottle 2: The check date 2021 JAN 1 is before the initial date 2020 DEC 31
+

@@ -1,0 +1,8 @@
+make C01STR
+make C01CLA
+make all
+./testDateStr
+./testDateCla
+make cleanC01STR
+make cleanC01CLA
+make cleanest

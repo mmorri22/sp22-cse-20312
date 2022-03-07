@@ -1,0 +1,4 @@
+make C01STR
+./testDateStr > testDateStr.out
+make C01CLA
+./testDateCla > testDateCla.out 
