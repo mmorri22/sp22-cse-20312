@@ -1,9 +1,8 @@
-#ifndef BTREE_NODE_H
-#define BTREE_NODE_H
+#ifndef BTREE_NODE2_H
+#define BTREE_NODE2_H
 
 #include <vector>
 #include <iostream>
-#include <algorithm>
 
 #define VECTOR std::vector
 #define COUT std::cout
@@ -17,31 +16,17 @@ struct btree_node{
 	/* Members */
 	SIZE_T order;	/* Order of the B-Tree */
 	SIZE_T curr_size; /* Current Number of Data Elements */
-	bool is_leaf;
 	VECTOR<T> data;	/* Vector containing the data values */
 	VECTOR< btree_node<T>* > child_ptrs; /* Child pointers */
 	
 	/* Methods */
-	btree_node( const SIZE_T& order_in, const bool is_leaf_in ) :
-		order( order_in ), curr_size( 0 ), is_leaf( is_leaf_in ),
+	btree_node( const SIZE_T& order_in ) :
+		order( order_in ), curr_size( 0 ), 
 		data( order_in - 1 ), child_ptrs( order_in, NULL ) {}
 		
 	~btree_node() {}
 	
-	bool contains_key( const T& insert_val ){
-		
-		for( SIZE_T iter = 0; iter < this->curr_size; ++iter ){
-			
-			if( this->data.at(iter) == insert_val ){
-
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
-	void node_insert( const T& insert_val ){
+	void insert( const T& insert_val ){
 		
 		if( curr_size < order - 1 ){
 		
@@ -58,10 +43,8 @@ struct btree_node{
 			
 			// The current location will be where we need to insert the value 
 			data.at( insert_iter ) = insert_val;
-			this->curr_size++;
-			
+			++curr_size;
 		}
-		
 	}
 	
 	void print_node(){
