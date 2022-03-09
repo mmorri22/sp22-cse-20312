@@ -22,7 +22,7 @@
  * Main driver function creates three Rows (queues) and 
  * compares them using the >, <, ==, and != operators 
  * *********************************/
-int main(int argc, char** argv)
+int main(const int argc, const char** argv)
 {
     
     // Create the initial Bottle
