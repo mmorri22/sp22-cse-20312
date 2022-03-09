@@ -1,4 +1,4 @@
-#include "../inc/RBTree.h"
+#include "../include/RBTree.h"
 #include <string>
 
 /********************************************

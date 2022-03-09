@@ -11,10 +11,10 @@ FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 # Variables for Folders
-INC := inc
+INC := include
 SRC := src
 EXE := exe
-OBJ := obj
+OBJ := objects
 
 # Command: make Prob1
 Prob1Objs := $(OBJ)/Prob1.o
