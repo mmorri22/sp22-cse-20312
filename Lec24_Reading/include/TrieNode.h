@@ -6,9 +6,9 @@
 #include <fstream>
 
 #define VECTOR std::vector
-#define LUI long unsigned int
+#define SIZE_T long unsigned int
 
-class TrieNode{
+struct TrieNode{
 
 private:
 
@@ -27,19 +27,19 @@ public:
 	// Add a child character
 	void addChild( const char& child_char ){
 		
-		if( child_nodes.at( (LUI)child_char ) != NULL )
+		if( child_nodes.at( (SIZE_T)child_char ) != NULL )
 			return;
 
 		TrieNode* temp = new TrieNode(child_char);
 		
-		child_nodes.at( (LUI)child_char ) = temp;
+		child_nodes.at( (SIZE_T)child_char ) = temp;
 	}
 
 	
 	// Get the Child Pointer
 	TrieNode* getChildPtr( const char& child_char ){
 		
-		return child_nodes.at( (LUI)child_char );
+		return child_nodes.at( (SIZE_T)child_char );
 		
 	}
 	

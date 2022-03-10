@@ -8,7 +8,7 @@
 #define STRING std::string
 #define NUM_ASCII 128
 
-class Trie{
+struct Trie{
 	
 	private:
 	

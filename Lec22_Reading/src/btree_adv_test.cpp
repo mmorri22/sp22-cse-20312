@@ -9,19 +9,19 @@ int main( const int argc, const char* argv[] ){
 	
 	SIZE_T degree = atoi( argv[1] );
 	
-	btree< int > test_tree( degree );
+	btree< long int > test_tree( degree );
 	
 	SIZE_T num_elements = atoi( argv[2] );
 	
-	int range = atoi( argv[3] );
+	long int range = atoi( argv[3] );
 	
 	srand( (unsigned int)time(0) );
 	
 	for( SIZE_T iter = 0; iter < num_elements; ++iter ){
 		
-		int insert_val = rand() % range;
+		long int insert_val = rand() % range;
 		
-		//COUT << "Inserting " << insert_val << "...." << ENDL;
+		COUT << "Inserting " << insert_val << "...." << ENDL;
 		
 		test_tree.insert( insert_val );
 		//test_tree.print_tree();
