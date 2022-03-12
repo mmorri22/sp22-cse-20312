@@ -105,6 +105,16 @@ $(OBJ)/btree_str_O4_test.o: $(SRC)/btree_str_O4_test.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/btree_str_O4_test.cpp -o $@
 	
 	
+# Command: make btree_int_O5_test
+btree_int_O5_testObjs := $(OBJ)/btree_int_O5_test.o 
+
+btree_int_O5_test: $(btree_int_O5_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_int_O5_test $(btree_int_O5_testObjs)
+
+$(OBJ)/btree_int_O5_test.o: $(SRC)/btree_int_O5_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_int_O5_test.cpp -o $@
+	
+	
 # Command: make btree_adv_test
 btree_adv_testObjs := $(OBJ)/btree_adv_test.o 
 

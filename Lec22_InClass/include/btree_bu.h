@@ -178,17 +178,8 @@ struct btree{
 					// This time, we need to determine how we will bring up the original pointers 
 					// We know that curr_node->child_ptrs.at( iter )->data.at(0) contains the element we are raising
 					// Copy the raised value to a temp register for improved performance
-					T raised_value = curr_node->child_ptrs.at( iter )->data.at(0);	
-
-
-					// Just like when the base nodes, we use our derived equation to split the middle 
-					SIZE_T curr_middle; 
-					
-					if( this->order %2 == 1 )
-						curr_middle	= (this->order) / 2;
-					
-					else	// Even sized order
-						curr_middle	= (this->order) / 2 - 1;
+					T raised_value = curr_node->child_ptrs.at( iter )->data.at(0);					
+					SIZE_T curr_middle = (curr_node->curr_size) / 2;
 					
 					
 					// The location of iter tells us the location
@@ -200,7 +191,8 @@ struct btree{
 					
 					
 					// Iterate through the elements until we either reach curr_middle or the raised value 
-					while( left_iter < curr_middle && curr_node->data.at(left_iter) < insert_val ){
+					while( left_iter < curr_middle 
+						&& curr_node->data.at(left_iter) < raised_value ){
 					
 						// Insert the current value into the node
 						left->node_insert( curr_node->data.at(left_iter) );
@@ -223,12 +215,11 @@ struct btree{
 						// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
 						delete curr_node->child_ptrs.at(iter);
 						
-						// The we go until the element BEFORE the current middle 
 						while( left_iter < curr_middle - 1 ){
 							
 							left->node_insert( curr_node->data.at(left_iter) );
 							
-							left->child_ptrs.at(left_iter + 2) = curr_node->child_ptrs.at( left_iter + 1 );
+							left->child_ptrs.at(left_iter + 1) = curr_node->child_ptrs.at( left_iter );
 							
 							++left_iter;
 						}
@@ -252,9 +243,11 @@ struct btree{
 					// If we did reach curr_middle, then the insert_val is in the middle or right 
 					else{
 						
-					
+						// left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at( left_iter );
+
+						
 						// Case where insert_val is the middle value 
-						if( left_iter == curr_middle && raised_value < curr_node->data.at(curr_middle) ){
+						if( raised_value < curr_node->data.at(curr_middle) ){
 							
 							// Set the parent's data to the data element we are raising
 							parent->node_insert( raised_value );
@@ -263,7 +256,8 @@ struct btree{
 							left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at( iter )->child_ptrs.at(0); 
 							right->child_ptrs.at(0) = curr_node->child_ptrs.at( iter )->child_ptrs.at(1);
 							
-														
+							
+							
 							// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
 							delete curr_node->child_ptrs.at(iter);							
 
@@ -291,7 +285,8 @@ struct btree{
 							// Add all the values to the right
 							right_iter = curr_middle + 1;
 							
-							while( right_iter < curr_node->curr_size && curr_node->data.at(right_iter) < raised_value ){
+							while( right_iter < curr_node->curr_size 
+									&& curr_node->data.at(right_iter) < insert_val ){
 								
 								right->node_insert( curr_node->data.at(right_iter) );
 								right->child_ptrs.at(right_iter - curr_middle - 1) = curr_node->child_ptrs.at( right_iter );
@@ -305,23 +300,23 @@ struct btree{
 							right->child_ptrs.at(right_iter - curr_middle) = curr_node->child_ptrs.at(iter)->child_ptrs.at(1);
 														
 
+
 							if( right_iter < curr_node->curr_size ){
 								
-								while( right_iter < curr_node->curr_size  ){	
-
+								while( right_iter < curr_node->curr_size  ){									
+									
 									right->node_insert( curr_node->data.at(right_iter) );
 																		
-									right->child_ptrs.at(right_iter - curr_middle + 1) = curr_node->child_ptrs.at( right_iter + 1 );
+									right->child_ptrs.at(right_iter) = curr_node->child_ptrs.at( right_iter + 1 );
 									
 									++right_iter;
 									
 								}
 																
-							}
-							
-							if( this->order % 2 == 1 )
-								right->child_ptrs.at(right_iter) = curr_node->child_ptrs.at( right_iter );
+								if( this->order % 2 == 1 )
+									right->child_ptrs.at(right_iter) = curr_node->child_ptrs.at( right_iter );
 								
+							}
 
 							// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
 							delete curr_node->child_ptrs.at(iter);	
@@ -376,18 +371,10 @@ struct btree{
 				// 1 - insert_val should end up on the left 
 				// 2 - insert_val will be in the parent 
 				// 3 - insert_val will be on the right 
-				SIZE_T curr_middle; 
-				
-				if( this->order %2 == 1 )
-					curr_middle	= (this->order) / 2;
-				
-				else	// Even sized order
-					curr_middle	= (this->order) / 2 - 1;
+				SIZE_T curr_middle = (curr_node->curr_size) / 2;
 				
 				SIZE_T left_iter = 0;
 				SIZE_T right_iter;
-				
-				// Go until we either reach the middle OR the insert_val is larger than the current value 
 				while( left_iter < curr_middle && curr_node->data.at(left_iter) < insert_val ){
 					
 					left->node_insert( curr_node->data.at(left_iter) );
@@ -398,21 +385,18 @@ struct btree{
 				// If we didn't reach curr_middle, the insert_val is on the left 
 				if( left_iter < curr_middle ){
 					
-					// First we insert the current value 
 					left->node_insert( insert_val );
 					
-					// The we go until the element BEFORE the current value 
 					while( left_iter < curr_middle - 1 ){
 						
 						left->node_insert( curr_node->data.at(left_iter) );
 						
-						++left_iter;						
+						++left_iter;
 					}
-					
+
 					// The curr middle needs to be the first element in the parent 
 					parent->node_insert( curr_node->data.at(left_iter) );
 					
-					// In this case, the right iter should ALWAYS start at curr middle 				
 					right_iter = curr_middle;
 					while( right_iter < curr_node->curr_size ){
 						
@@ -425,32 +409,30 @@ struct btree{
 				// If we did reach curr_middle, then the insert_val is in the middle or right 
 				else{
 					
-					// If we reached curr_middle AND the insert val is less than that curr_middle 
-					if( left_iter == curr_middle && insert_val < curr_node->data.at(curr_middle) ){
+					// Case where insert_val is the middle value 
+					if( insert_val <= curr_node->data.at(curr_middle) ){
 						
-						// The insert_val needs to be the parent 
+						// Set the parent's data to insert_val
 						parent->node_insert( insert_val );
 						
-						// In this case, the right iter should ALWAYS start at curr middle 	
+						// Add all the values to the right
 						right_iter = curr_middle;
 						while( right_iter < curr_node->curr_size ){
 							
 							right->node_insert( curr_node->data.at(right_iter) );
 							
 							++right_iter;
-						}
-					}
+						}	
+					}	
 
 					// Case where insert_val will be on the right 
 					else{
 						
-						// The parent value should be the value in the middle 
 						parent->node_insert( curr_node->data.at(curr_middle) );
 						
 						// Add all the values to the right
 						right_iter = curr_middle + 1;
 						
-						// Continue going while the current value is less than the current size AND we are less than the insert value 
 						while( right_iter < curr_node->curr_size 
 								&& curr_node->data.at(right_iter) < insert_val ){
 							

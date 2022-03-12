@@ -11,17 +11,19 @@ int main( const int argc, const char* argv[] ){
 	
 	btree< long int > test_tree( degree );
 	
-	SIZE_T num_elements = atoi( argv[2] );
+	SIZE_T num_elements = atol( argv[2] );
 	
-	long int range = atoi( argv[3] );
+	// ASCII to long int uses atol instead of atoi
+	long int range = atol( argv[3] );
 	
 	srand( (unsigned int)time(0) );
 	
 	for( SIZE_T iter = 0; iter < num_elements; ++iter ){
 		
-		long int insert_val = rand() % range;
+		long int insert_val = (long int)rand() % range;
 		
-		COUT << "Inserting " << insert_val << "...." << ENDL;
+		if( iter % 2 == 1 )
+			insert_val *= iter;
 		
 		test_tree.insert( insert_val );
 		//test_tree.print_tree();

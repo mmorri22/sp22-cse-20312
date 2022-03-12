@@ -1,13 +1,13 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 - Lecture 34
+# This is the Makefile for the CSE 20312 - Lecture 25
 
 # G++ is for the GCC compiler for C++
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -Werror 
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 
@@ -15,7 +15,7 @@ CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 INC := include
 SRC := src
 EXE := exe
-OBJ := obj
+OBJ := objects
 
 
 
@@ -83,22 +83,22 @@ $(OBJ)/Polymorph.o: $(SRC)/Polymorph.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Polymorph.cpp -o $@
 
 $(OBJ)/BinNode.o: $(SRC)/BinNode.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/BinNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/BinNode.cpp -o $@
 
 $(OBJ)/NumNode.o: $(SRC)/NumNode.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/NumNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/NumNode.cpp -o $@
 
 $(OBJ)/AddNode.o: $(SRC)/AddNode.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/AddNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/AddNode.cpp -o $@
 
 $(OBJ)/SubNode.o: $(SRC)/SubNode.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/SubNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/SubNode.cpp -o $@
 
 $(OBJ)/DivNode.o: $(SRC)/DivNode.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/DivNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DivNode.cpp -o $@
 
 $(OBJ)/MultNode.o: $(SRC)/MultNode.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/MultNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/MultNode.cpp -o $@
 	
 	
 
