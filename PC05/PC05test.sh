@@ -9,6 +9,8 @@
 # Variables for the script
 SCRIPT_OUT="puzzle_test.out"
 
+make initialize > /dev/null
+
 # Create folders for input/output files 
 mkdir -p wrk
 mkdir -p ref
