@@ -89,6 +89,7 @@ struct btree{
 			
 		}
 		
+		
 		bool insert( btree_node<T>*& curr_node, const T& insert_val ){
 			
 			// Setting the current node to being a leaf

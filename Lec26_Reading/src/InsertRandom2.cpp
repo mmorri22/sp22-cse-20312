@@ -14,8 +14,8 @@ int main(){
 	/* Dynamic Array with 100 unsigned ints initialized to 0 */
 	std::vector< unsigned int > distribution( 100, 0 );
 	
-	// Run the test 1000 times 
-	for( unsigned int iter = 0; iter < 10000; iter++ ){
+	// Run the test 1000000 times 
+	for( unsigned int iter = 0; iter < 10000000; iter++ ){
 		
 		Treap< int > tempTreap;
 		

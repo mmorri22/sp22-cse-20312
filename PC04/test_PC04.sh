@@ -112,6 +112,8 @@ fi
 #######################
 # Test the make clean command 
 #######################
+make initialize
+
 echo "" >> $SCRIPT_OUT
 echo "-----------------------------" >> $SCRIPT_OUT
 echo "Testing make clean" >> $SCRIPT_OUT
