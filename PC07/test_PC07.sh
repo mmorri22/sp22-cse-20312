@@ -17,7 +17,7 @@ CHECK_O_PTS=25
 CHECK_EXE_PTS=25
 CHECK_CLEAN=25
 PC_07_PQC_TEST=50
-COMPILATION_TEST=85
+COMPILATION_TEST=75
 
 
 # Delete the script.out so student can test multiple times
