@@ -116,13 +116,23 @@ $(OBJ)/btree_int_O5_test.o: $(SRC)/btree_int_O5_test.cpp
 	
 	
 # Command: make btree_adv_test
-btree_adv_testObjs := $(OBJ)/btree_adv_test.o 
+btree_adv_int_testObjs := $(OBJ)/btree_adv_int_test.o 
 
-btree_adv_test: $(btree_adv_testObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/btree_adv_test $(btree_adv_testObjs)
+btree_adv_int_test: $(btree_adv_int_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_adv_int_test $(btree_adv_int_testObjs)
 
-$(OBJ)/btree_adv_test.o: $(SRC)/btree_adv_test.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/btree_adv_test.cpp -o $@
+$(OBJ)/btree_adv_int_test.o: $(SRC)/btree_adv_int_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_adv_int_test.cpp -o $@
+	
+
+# Command: make btree_adv_str_test
+btree_adv_str_testObjs := $(OBJ)/btree_adv_str_test.o 
+
+btree_adv_str_test: $(btree_adv_str_testObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/btree_adv_str_test $(btree_adv_str_testObjs)
+
+$(OBJ)/btree_adv_str_test.o: $(SRC)/btree_adv_str_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/btree_adv_str_test.cpp -o $@
 	
 
 # make initialize

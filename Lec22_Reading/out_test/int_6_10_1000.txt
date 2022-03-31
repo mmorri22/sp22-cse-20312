@@ -1,3 +1,0 @@
-Final In-Order Traversal of B-Tree
-BTree - [ {54, Level: 2} {405, Level: 2} {477, Level: 2} {827, Level: 2} {858, Level: 1} {872, Level: 2} {967, Level: 2} {1257, Level: 2} {2499, Level: 2} {4545, Level: 2}  ]
-

@@ -1,4 +1,4 @@
-#include "../include/btree3.h"
+#include "../include/btree.h"
 #include <cstdlib>	// For atoi 
 
 int main( const int argc, const char* argv[] ){

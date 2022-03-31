@@ -89,6 +89,7 @@ struct btree{
 			
 		}
 		
+		
 		bool insert( btree_node<T>*& curr_node, const T& insert_val ){
 			
 			// Setting the current node to being a leaf
@@ -154,193 +155,159 @@ struct btree{
 				// The final case is when we split, and bringing the value up will split the current node as well
 				else{
 				
+					/**********************************************
+					 * In-Class Programming Begins Here 
+					 *
+					 * We will be reinforcing your understanding of pointers 
+					 * and memory allocation and freeing
+					 * to build programs that work together cleanly and safely
+					 **********************************************/
+				
 					// We know the node with the data being pointed to is "in order"
 					// But it is not in the current node
 					// And the current node is full 
 					// So we will need to split
 					
 					// Create a parent node to split up 
-					btree_node<T>* parent = new btree_node<T>( order, false );
+					
 					
 					// Create a first node (left) - This will be *not* a leaf
-					btree_node<T>* left = new btree_node<T>( order, false );
+					
 					
 					// Create a second node (right) - This will be *not* a leaf
-					btree_node<T>* right = new btree_node<T>( order, false );
+					
 					
 					// Set the left as the first child pointer of parent 
-					parent->child_ptrs.at(0) = left;
+					
 					
 					// Set the right as the second child pointer of parent 
-					parent->child_ptrs.at(1) = right;
+					
 					
 					
 					// This time, we need to determine how we will bring up the original pointers 
 					// We know that curr_node->child_ptrs.at( iter )->data.at(0) contains the element we are raising
 					// Copy the raised value to a temp register for improved performance
-					T raised_value = curr_node->child_ptrs.at( iter )->data.at(0);	
+					
 
 
 					// Just like when the base nodes, we use our derived equation to split the middle 
-					SIZE_T curr_middle; 
 					
-					if( this->order %2 == 1 )
-						curr_middle	= (this->order) / 2;
-					
-					else	// Even sized order
-						curr_middle	= (this->order) / 2 - 1;
 					
 					
 					// The location of iter tells us the location
 					// If iter is less than the curr_middle, then it will be to the left
 					// if iter is equal to curr middle, it will be the value to raise!
 					// If iter is greater than curr_middle, it will be to the right
-					SIZE_T left_iter = 0;
-					SIZE_T right_iter;
+					
 					
 					
 					// Iterate through the elements until we either reach curr_middle or the raised value 
-					while( left_iter < curr_middle && curr_node->data.at(left_iter) < insert_val ){
 					
 						// Insert the current value into the node
-						left->node_insert( curr_node->data.at(left_iter) );
 						
 						// The pointer to the left in curr node will be the pointer to the left in the new node
-						left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at( left_iter );
 						
-						++left_iter;
-					}
+
 
 					// If we didn't reach curr_middle, the insert_val is on the left 
-					if( left_iter < curr_middle ){
 												
-						left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at(iter)->child_ptrs.at(0);
-						
-						left->node_insert( raised_value );
-						
-						left->child_ptrs.at(left_iter + 1) = curr_node->child_ptrs.at(iter)->child_ptrs.at(1);
+
 						
 						// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
-						delete curr_node->child_ptrs.at(iter);
+						
 						
 						// The we go until the element BEFORE the current middle 
-						while( left_iter < curr_middle - 1 ){
-							
-							left->node_insert( curr_node->data.at(left_iter) );
-							
-							left->child_ptrs.at(left_iter + 2) = curr_node->child_ptrs.at( left_iter + 1 );
-							
-							++left_iter;
-						}
+						
 
 						// The curr middle needs to be the first element in the parent 
-						parent->node_insert( curr_node->data.at(left_iter) );
 						
-						right_iter = curr_middle;
-						while( right_iter < curr_node->curr_size ){
-							
-							right->node_insert( curr_node->data.at(right_iter) );
-							
-							right->child_ptrs.at(right_iter - curr_middle) = curr_node->child_ptrs.at( right_iter );
-							
-							++right_iter;
-						}
-										
-						right->child_ptrs.at(right_iter - curr_middle) = curr_node->child_ptrs.at( right_iter );
-					}
+
 					
 					// If we did reach curr_middle, then the insert_val is in the middle or right 
-					else{
 						
 					
 						// Case where insert_val is the middle value 
-						if( left_iter == curr_middle && raised_value < curr_node->data.at(curr_middle) ){
 							
 							// Set the parent's data to the data element we are raising
-							parent->node_insert( raised_value );
 							
 							// Place the raised value's first pointer at the end of left 
-							left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at( iter )->child_ptrs.at(0); 
-							right->child_ptrs.at(0) = curr_node->child_ptrs.at( iter )->child_ptrs.at(1);
 							
 														
 							// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
-							delete curr_node->child_ptrs.at(iter);							
 
-							right_iter = curr_middle;
-							while( right_iter < curr_node->curr_size ){
+							
+							
 								
-								right->node_insert( curr_node->data.at(right_iter) );
 								
-								right->child_ptrs.at(right_iter - curr_middle + 1) = curr_node->child_ptrs.at( right_iter + 1 );
 								
-								++right_iter;
-							}	
-							//right->child_ptrs.at(right_iter - curr_middle) = curr_node->child_ptrs.at( right_iter );
+								
+								
+								
+								
 
-						}	
+						
 
 						// Case where insert_val will be on the right 
-						else{
+						
 														
-							left->child_ptrs.at(left_iter) = curr_node->child_ptrs.at( left_iter );
+							
 							
 							// Insert the curr_middle in the parent
-							parent->node_insert( curr_node->data.at(curr_middle) );
+							
 							
 							// Add all the values to the right
-							right_iter = curr_middle + 1;
 							
-							while( right_iter < curr_node->curr_size && curr_node->data.at(right_iter) < raised_value ){
-								
-								right->node_insert( curr_node->data.at(right_iter) );
-								right->child_ptrs.at(right_iter - curr_middle - 1) = curr_node->child_ptrs.at( right_iter );
-								++right_iter;							
-							}
-														
-							right->child_ptrs.at(right_iter - curr_middle - 1) = curr_node->child_ptrs.at(iter)->child_ptrs.at(0);
-
-							right->node_insert( raised_value );
 							
-							right->child_ptrs.at(right_iter - curr_middle) = curr_node->child_ptrs.at(iter)->child_ptrs.at(1);
+							
+								
+								
+								
+															
+							
+														
+							
+
+							
+							
+							
 														
 
-							if( right_iter < curr_node->curr_size ){
+							
 								
-								while( right_iter < curr_node->curr_size  ){	
+									
 
-									right->node_insert( curr_node->data.at(right_iter) );
+									
 																		
-									right->child_ptrs.at(right_iter - curr_middle + 1) = curr_node->child_ptrs.at( right_iter + 1 );
 									
-									++right_iter;
 									
-								}
+									
+									
+								
 																
-							}
 							
-							if( this->order % 2 == 1 )
-								right->child_ptrs.at(right_iter) = curr_node->child_ptrs.at( right_iter );
+							
+							
+								
 								
 
 							// Delete the child pointer since we no longer need that pointer - Essential to pass valgrind
-							delete curr_node->child_ptrs.at(iter);	
-						}
-					}
+								
+						
+					
 					
 					
 					// Update the curr_node to point at parent 
 					// Create a reference node for deletion
-					btree_node<T>* to_delete = curr_node;
+					
 				
 					// Set the current node to the parent to recursively return
-					curr_node = parent;
+					
 					
 					// Delete the node we were pointing to
-					delete to_delete;	
+					
 					
 					// We split again, so we must return true
-					return true;
+					
 				}
 			}
 			
