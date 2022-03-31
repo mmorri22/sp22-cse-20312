@@ -7,12 +7,13 @@ wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClas
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/include/btree_node.h
 cd ../src
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/ 
-wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree3_int_test.cpp  
-wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_adv_test.cpp     
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree3_int_test.cpp 
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree3_str_test.cpp   
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_adv_int_test.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_adv_str_test.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_int_O4_test.cpp  
-wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree3_str_test.cpp  
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_int_O3_test.cpp  
-wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_str_O4_test.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/src/btree_int_O5_test.cpp
 cd ../in_test
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/in_test/random1000.txt
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec22_InClass/in_test/wordle_allowed.txt
