@@ -137,6 +137,17 @@ noDups: $(noDupsObjs)
 
 $(OBJ)/noDups.o: $(SRC)/noDups.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/noDups.cpp -o $@
+	
+	
+# Command: make skyline
+# Skyline Set Problem
+skylineObjs := $(OBJ)/skyline.o
+
+skyline: $(skylineObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/skyline $(skylineObjs)
+
+$(OBJ)/skyline.o: $(SRC)/skyline.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/skyline.cpp -o $@
 
 
 # Make initialize

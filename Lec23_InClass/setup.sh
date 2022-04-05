@@ -14,7 +14,8 @@ wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClas
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/testRBTree2.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/multiSet.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/treeTest.cpp 
-wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/noDups.
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/noDups.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/noDups_sol.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/skyline.cpp
 cd ..
 rm setup.sh

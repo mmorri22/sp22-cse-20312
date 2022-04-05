@@ -75,22 +75,22 @@ struct RBTNode {
 	RBTNode<T>* sibling() const{ 
 	
 		// sibling null if no parent 
-		if (parent == NULL) 
-			return NULL; 
+		
+			
 
 		// Return a pointer to the Sibling
-		return (isOnLeft()) ? parent->right : parent->left; 
+		
 	} 
 	
 	// Get the Node's Uncle 
 	RBTNode<T>* uncle() const{ 
 
 		// If no parent or grandparent, then no uncle 
-		if (parent == NULL or parent->parent == NULL) 
-			return NULL; 
+		
+			
 
 		// Return a pointer to the uncle
-		return (parent->isOnLeft()) ? parent->parent->right : parent->parent->left;
+		
 	}
   
 	// moves node down and moves given node in its place 
