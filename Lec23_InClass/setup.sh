@@ -1,0 +1,20 @@
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/Makefile
+make initialize
+mkdir include src
+cd include
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/include/RBTNode.h
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/include/RBTNode_sol.h
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/include/RBTree.h
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/include/RBTree_sol.h
+cd ../src
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/RBDelTest.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/RBTreePrintAddr.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/RBTreeTest.cpp  
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/testRBTree1.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/testRBTree2.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/multiSet.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/treeTest.cpp 
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/noDups.
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec23_InClass/src/noDups_sol.cpp
+cd ..
+rm setup.sh
