@@ -1,0 +1,21 @@
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/Makefile
+make initialize
+mkdir include src
+cd include
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/include/Trie.h 
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/include/TrieNode.h
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/include/Trie_sol.h
+cd ../src
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/Access_URLs.txt
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/BloomURL.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/Dictionary.txt
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/HammingDist.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/NDCSE_URLs.txt
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/ReverseBits.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/SmallDictionary.txt 
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/SubsetSums.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/TrieTest.cpp 
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/WordBreak.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp22-cse-20312/main/Lec24_InClass/src/WordSearch.cpp
+cd ..
+rm setup.sh
