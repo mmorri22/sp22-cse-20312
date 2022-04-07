@@ -118,7 +118,7 @@ $(OBJ)/BloomURL.o: $(SRC)/BloomURL.cpp
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
 initialize: 
-	mkdir objects executables
+	mkdir $(OBJ) $(EXE)
 
 
 # Make clean
