@@ -6,7 +6,7 @@
 * Fundamental Class Example
 **********************************************/
 
-#include "line.h"
+#include "../include/line.h"
 
 line::line() : origin( point(0, 0) ), destin( point(0, 0) ) {}
 

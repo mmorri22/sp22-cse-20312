@@ -35,8 +35,7 @@ class point{
 		
 		void setY(COORDINATE inY);
 
-		// We will write the friend operator declaration here
-		
+		friend std::ostream& operator<<(std::ostream& output, const point& p);
 };
 
 #endif

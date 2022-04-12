@@ -39,4 +39,9 @@ void point::setY(COORDINATE inY){
 }
 
 
-// We will write the friend operator definition here 
+std::ostream& operator<<(std::ostream& output, const point& p){
+	
+	output << "{" << p.x << ", " << p.y << "}";
+	
+	return output;
+}

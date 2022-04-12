@@ -5,6 +5,7 @@
 
 int main(){
     
+	// Created, but not initialized - Will not pass PQC yet
     pthread_t tid_0;
     
     fprintf( stdout, "%p %ld\n", &tid_0, tid_0 );

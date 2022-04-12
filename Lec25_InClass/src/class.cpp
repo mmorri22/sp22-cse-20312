@@ -1,11 +1,11 @@
 /**********************************************
-* File: classIntro.cpp
+* File: class.cpp
 * Author: Matthew Morrison
 * Email: matt.morrison@nd.edu
 * 
 * This file contains examples of class constructor calls 
 **********************************************/
-#include "line.h"
+#include "../include/line.h"
 
 int main(){
 
