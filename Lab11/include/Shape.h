@@ -5,10 +5,16 @@
 
 class Shape
 {
- public:
-  virtual ~Shape();
-  virtual int GetArea() const =0;
-  virtual void Draw() const;
+	public:
+ 
+		// Virtual Destructor
+		virtual ~Shape() {}
+		
+		// Dynamically Binded Area Function
+		virtual int GetArea() const =0;
+		
+		// Dynamically Binded Draw Function
+		virtual void Draw() const = 0;
 };
 
 #endif
