@@ -50,6 +50,9 @@ void create_parallel_threads( thread_func_args** thread_inputs, long unsigned in
 		// Use calloc to initialize the memory to pass valgrind 
 		thread_inputs[ iter ] = (thread_func_args*)calloc( 1, sizeof(thread_func_args) );
 		
+		// Print the address and the initial value of solution
+		fprintf( stdout, "%p %p\n", &thread_inputs[ iter ], thread_inputs[ iter ] );		
+		
 		thread_inputs[ iter ]->input_1 = (int)iter;
 		
 		thread_inputs[ iter ]->int_ptr = global_int_ptr;

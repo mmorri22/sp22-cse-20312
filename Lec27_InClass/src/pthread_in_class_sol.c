@@ -95,6 +95,9 @@ int main( void ){
 	// 1 - Create a struct with the inputs for the function
     thread_func_args** thread_inputs = (thread_func_args**)malloc( num_threads * sizeof(thread_func_args *) );
 	
+	// Print the address and the initial value of solution
+	fprintf( stdout, "%p %p\n", &thread_inputs, thread_inputs );
+	
 	// 2 - Create the 5 parallel threads
 	create_parallel_threads( thread_inputs, num_threads, &solution );
 	
