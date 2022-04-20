@@ -158,12 +158,12 @@ int main( void ){
 	
 	
 	// Free the thread inputs pointers
-	
+	free_threads( thread_inputs, num_kids );
 	
 	// Free the thread inputs 
+	free( thread_inputs );
 	
-	
-	// Should be the last thing in main before return 0 if using this
+	// Step 4 - Part 4 - Should be the last thing in main before return 0 if using this
 	// Ensure main does not end before everything else
 	
 		
