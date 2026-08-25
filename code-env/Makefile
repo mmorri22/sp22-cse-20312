@@ -7,7 +7,7 @@
 CC := gcc
 
 # CFLAGS are the required compiler flags for the CSE 20133 course
-CFLAGS := -O2 -g -std=c11 -Wall -Wextra -Wconversion -Wshadow -lm -Werror
+CFLAGS := -O2 -g -std=c2x -Wall -Wextra -Wconversion -Wshadow -lm -Werror
 
 
 # Compilation for the nothing program
@@ -38,17 +38,10 @@ specifiers.o: specifiers.c
 	$(CC) $(CFLAGS) -c specifiers.c
 
 
-# Compilation for printing Hello World with a string specifier
-# Command: make specifiers
-helloSpec: helloSpec.o
-	$(CC) $(CFLAGS) -o helloSpec helloSpec.o
-
-helloSpec.o: helloSpec.c
-	$(CC) $(CFLAGS) -c helloSpec.c
 
 # Make all
-all: nothing hello specifiers helloSpec
+all: nothing hello specifiers
 
 # Make clean
 clean:
-	rm -rf *.o *.swp nothing hello specifiers helloSpec
+	rm -rf *.o *.swp nothing hello specifiers
